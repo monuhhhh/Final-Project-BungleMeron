@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=AnnoyingFruit
+comment0.text=\r\n\ AnnoyingFruit\ is\ a\ superclass\ for\ all\ Annoying\ fruit\ characters.\r\n\ \r\n\ These\ fruits\ aggressively\ seek\ out\ and\ attack\ other\ fruits.\r\n\ \r\n\ @author\ Monika\r\n\ @version\ 24\ Nov,\ 2025\r\n
+comment1.params=direction
+comment1.target=AnnoyingFruit(int)
+comment2.params=
+comment2.target=void\ chargeAndFight()
+comment3.params=enemy
+comment3.target=void\ attack(Fruits)
+comment4.params=
+comment4.target=void\ moveFruit()
+comment5.params=
+comment5.target=void\ checkEdge()
+numComments=6
