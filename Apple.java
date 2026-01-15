@@ -12,6 +12,11 @@ public class Apple extends PlayerFruit
     {
         super(1, imagePath, 100); // direction, imagePath, hp
     }
+    
+    public void act()
+    {
+        super.act(); // Call the parent's act method
+    }
 }
 
 

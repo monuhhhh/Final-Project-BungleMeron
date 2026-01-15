@@ -71,11 +71,11 @@ public class CustomizeWorld extends World
         String imagePath = "Fruit/" + name + ".png"; 
         //create fruit
         switch(name){
-            //case "Lemon": return new Lemon(imagePath);
-            //case "Pineapple": return new Pineapple(imagePath);
+            case "Lemon": return new Lemon(imagePath);
+            case "Pineapple": return new Pineapple(imagePath);
             case "Apple": return new Apple(imagePath);
-            //case "Kiwi": return new Kiwi(imagePath);
-            //case "Orange": return new Orange(imagePath);
+            case "Kiwi": return new Kiwi(imagePath);
+            case "Orange": return new Orange(imagePath);
             default:
                 System.out.println("Warning: No class found for fruit: " + name);
                 return null;
@@ -90,7 +90,7 @@ public class CustomizeWorld extends World
         showText("", 420, 220);
         showText("", 420, 255);
     
-        showText("HP: " + (int)f.hp, 420, 160);
+        showText(" HP: " + (int)f.hp, 420, 160);
     }
     
     public void nextFruit(){

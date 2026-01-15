@@ -3,4 +3,6 @@ comment0.target=Apple
 comment0.text=\n\ AnnoyingApple\ represents\ the\ Apple\ variant\ of\ the\ Annoying\ fruit\ player.\n\ \n\ @author\ Monika\n\ @version\ 24\ Nov,\ 2025\n
 comment1.params=imagePath
 comment1.target=Apple(java.lang.String)
-numComments=2
+comment2.params=
+comment2.target=void\ act()
+numComments=3

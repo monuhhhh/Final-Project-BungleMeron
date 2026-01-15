@@ -28,7 +28,7 @@ public abstract class PlayerFruit extends Fruits
     public void act() {
         if (frozen) return;
         handleMovement();
-        applyGravity();
+        //applyGravity();
     }
     
     //handles left/right movement and jumping

@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class TitleWorld here.
  * 
  * @author Carmen Cheung 
- * @version (a version number or a date)
+ * @version Jan 13, 2025
  */
 public class TitleWorld extends World
 {
@@ -19,7 +19,7 @@ public class TitleWorld extends World
         super(600, 400, 1);  
         setBackground(new GreenfootImage("titleworld.png"));
         //Add start button
-        StartButton start = new StartButton();
+        StartButton start = new StartButton("InstructionWorld");
         addObject(start, getWidth()/2, getHeight()/2 + 80); 
     }
 }
