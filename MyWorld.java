@@ -3,12 +3,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class MyWorld here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Carmen Cheung 
+ * @version 14 Jan, 2026
  */
 public class MyWorld extends World
 {
-
+    public static Fruits selectedFruit;
     /**
      * Constructor for objects of class MyWorld.
      * 

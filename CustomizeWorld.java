@@ -1,30 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * CustomizeWorld alos players to select thier fruit characters before the simulation starts,
- * player first choose the "Annoying" team fruit, the the "AI" team fruit, each fruit has 
- * unique stats that effect the ending result of the game depends on which fruit player pick.
+ * CustomizeWorld allows players to select their fruit characters before the simulation starts.
+ * Each fruit has unique stats that affect the ending result of the game depends on which fruit player picks.
  * 
  * @author Carmen Cheung
- * @version 24 Nov,2025
+ * @version 13 Jan, 2026
  */
 public class CustomizeWorld extends World
 {
-    //List of available fruit names for each team
-    private ArrayList<String> annoyingFruitNames = new ArrayList<>();
-    private ArrayList<String> aiFruitNames = new ArrayList<>();
+    //List of available fruit names
+    private ArrayList<String> fruitNames = new ArrayList<>();
     
     private int index = 0; 
     
     //the fruit currently shown
-    private Fruits displayedFruit;
+    private PlayerFruit displayedFruit;
     
-    private Fruits AnnoyingFruit;
-    private Fruits AiFruit; 
+    private PlayerFruit selectedFruit; 
     
-    private int selectingPlayer = 1; 
-    // 1 = picking Annoying fruit
-    // 2 = picking Ai fruit
     /**
      * Constructor for objects of class CustomizeWorld.
      * 
@@ -36,17 +30,11 @@ public class CustomizeWorld extends World
         setBackground(new GreenfootImage("af.png"));
         
         // display fruits
-        annoyingFruitNames.add("Lemon1");
-        annoyingFruitNames.add("Pineapple1");
-        annoyingFruitNames.add("Apple1");
-        annoyingFruitNames.add("Kiwi1");
-        annoyingFruitNames.add("Orange1");
-        
-        aiFruitNames.add("Lemon2");
-        aiFruitNames.add("Pineapple2");
-        aiFruitNames.add("Apple2");
-        aiFruitNames.add("Kiwi2");
-        aiFruitNames.add("Orange2");
+        fruitNames.add("Lemon");
+        fruitNames.add("Pineapple");
+        fruitNames.add("Apple");
+        fruitNames.add("Kiwi");
+        fruitNames.add("Orange");
         
         showCurrentFruit();
         
@@ -56,18 +44,14 @@ public class CustomizeWorld extends World
         addObject(new SelectButton(this), 135, 320);
     }
     
-    //Displays the current fruit an removes the previous fruit display
+    //Displays the current fruit and removes the previous fruit display
     public void showCurrentFruit(){
         //remove old display
         if (displayedFruit != null) {
             removeObject(displayedFruit);
         }
         
-        // Create the actual fruit object
-        ArrayList<String> list = (selectingPlayer == 1) ? annoyingFruitNames : aiFruitNames;
-
-        displayedFruit = createFruit(list.get(index));
-        displayedFruit.setPreviewMode(true);
+        displayedFruit = createFruit(fruitNames.get(index));
         
         //Add the fruit to the world         
         addObject(displayedFruit, 130, 220);
@@ -81,80 +65,54 @@ public class CustomizeWorld extends World
         showStats(displayedFruit);
     }
     
-    //create the appropriate fruit object based on namr and selecting player
-    private Fruits createFruit(String name){
-        //create Annoying team fruit
-        if (selectingPlayer == 1){
-            switch(name){
-                case "Lemon1": return new AnnoyingLemon(1, Fruits.TEAM_ANNOYING);
-                case "Pineapple1": return new AnnoyingPinapple(1, Fruits.TEAM_ANNOYING);
-                case "Apple1": return new AnnoyingApple(1, Fruits.TEAM_ANNOYING);
-                case "Kiwi1": return new AnnoyingKiwi(1, Fruits.TEAM_ANNOYING);
-                case "Orange1": return new AnnoyingOrange(1, Fruits.TEAM_ANNOYING);
-            }
+    //create the appropriate fruit object based on name
+    private PlayerFruit createFruit(String name){
+        //Load image from Fruit folder
+        String imagePath = "Fruit/" + name + ".png"; 
+        //create fruit
+        switch(name){
+            //case "Lemon": return new Lemon(imagePath);
+            //case "Pineapple": return new Pineapple(imagePath);
+            case "Apple": return new Apple(imagePath);
+            //case "Kiwi": return new Kiwi(imagePath);
+            //case "Orange": return new Orange(imagePath);
+            default:
+                System.out.println("Warning: No class found for fruit: " + name);
+                return null;
         }
-        
-        if (selectingPlayer == 2){
-            switch(name){
-                case "Lemon2": return new AILemon(-1, Fruits.TEAM_AI);
-                case "Pineapple2": return new AIPinapple(-1, Fruits.TEAM_AI);
-                case "Apple2": return new AIApple(-1, Fruits.TEAM_AI);
-                case "Kiwi2": return new AIKiwi(-1, Fruits.TEAM_AI);
-                case "Orange2": return new AIOrange(-1, Fruits.TEAM_AI);
-            }
-        }
-        
-        return null; 
+         
     }
     
-    private void showStats(Fruits f){
+    private void showStats(PlayerFruit f){
         // Clear previous text
         showText("", 420, 160);
         showText("", 420, 190);
         showText("", 420, 220);
         showText("", 420, 255);
     
-        showText(" " + (int)f.hp, 420, 160);
-        showText(" " + (int)f.maxHP, 420, 190);
-        showText(" " + (int)f.strength, 420, 220);
-        showText(" " + f.reactionTime, 420, 255);
+        showText("HP: " + (int)f.hp, 420, 160);
     }
     
     public void nextFruit(){
-        ArrayList<String> list = (selectingPlayer == 1) ? annoyingFruitNames : aiFruitNames;
-        index = (index + 1) % list.size();
+        index = (index + 1) % fruitNames.size();
         showCurrentFruit();
     }
     
     public void prevFruit(){
-        ArrayList<String> list = (selectingPlayer == 1) ? annoyingFruitNames : aiFruitNames;
-        index = (index - 1 + list.size()) % list.size();
+        index = (index - 1 + fruitNames.size()) % fruitNames.size();
         showCurrentFruit();
     }
     
     public void selectFruit() { 
-        if(selectingPlayer ==1){
-            AnnoyingFruit = displayedFruit;
-            
-            selectingPlayer = 2; 
-            index = 0; 
-            
-            setBackground(new GreenfootImage("ai.png")); 
-            
-            showCurrentFruit();
-        } else if(selectingPlayer == 2){
-            AiFruit = displayedFruit;
-            
-            MyWorld.selectedAnnoyingFruit = AnnoyingFruit;  
-            MyWorld.selectedAIFruit = AiFruit;
-            
-            Greenfoot.setWorld(new MyWorld());
-        }
+        selectedFruit = displayedFruit; 
+        
+        //Pass selected fruit to main world
+        MyWorld.selectedFruit = selectedFruit; 
+        
+        Greenfoot.setWorld(new MyWorld()); 
     }
     
-
-    public Fruits getSelectedFruit() {
+    public PlayerFruit getSelectedFruit() {
         return displayedFruit;
     }
-    
 }

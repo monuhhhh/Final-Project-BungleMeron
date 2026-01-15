@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=PlayerFruit
+comment0.text=\n\ AnnoyingFruit\ is\ the\ player-controlled\ fruit.\n\ The\ player\ selects\ which\ annoying\ fruit\ to\ play\ as.\n\ \n\ @author\ Monika\n\ @version\ 24\ Nov,\ 2025\n
+comment1.params=direction\ imagePath\ hp
+comment1.target=PlayerFruit(int,\ java.lang.String,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ handleMovement()
+comment4.params=
+comment4.target=void\ applyGravity()
+comment5.params=
+comment5.target=void\ checkEdge()
+numComments=6

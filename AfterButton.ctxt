@@ -1,7 +1,8 @@
 #BlueJ class context
 comment0.target=AfterButton
-comment0.text=\n\ Write\ a\ description\ of\ class\ AfterButton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=
-comment1.target=void\ act()
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ AfterButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-numComments=2
+comment0.text=\n\ Write\ a\ description\ of\ class\ AfterButton\ here.\n\ \n\ @author\ Carmen\ Cheung\ \n\ @version\ Jan\ 13,\ 2025\n
+comment1.params=w
+comment1.target=AfterButton(CustomizeWorld)
+comment2.params=
+comment2.target=void\ act()
+numComments=3

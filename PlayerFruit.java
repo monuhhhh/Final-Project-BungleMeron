@@ -7,24 +7,22 @@ import greenfoot.*;
  * @author Monika
  * @version 24 Nov, 2025
  */
-public abstract class AnnoyingFruit extends Fruits
+public abstract class PlayerFruit extends Fruits
 {
     //movement variables
     protected int yVelocity = 0;
     protected boolean onGround = false;
     protected int jumpStrength = 15;
     
-    //constructor for AnnoyingFruit (player)
-    public AnnoyingFruit(
+    //constructor for PlayerFruit (player)
+    public PlayerFruit(
         int direction,
         String imagePath,
-        double hp,
-        double maxHP,
-        double strength
-    ){
+        int hp)
+    {
         super(direction);
         setImage(imagePath);
-        initStats(hp, maxHP, strength, 0); // reactionTime not used for player
+        initStats(hp); // reactionTime not used for player
     }
     
     public void act() {
@@ -54,10 +52,12 @@ public abstract class AnnoyingFruit extends Fruits
         yVelocity += 1;
         setLocation(getX(), getY() + yVelocity);
 
+        /**
         if (isTouching(Ground.class)) {
             onGround = true;
             yVelocity = 0;
         }
+        **/
     }
 
     //edge detection 
