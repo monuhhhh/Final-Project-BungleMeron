@@ -24,7 +24,7 @@ public class BossFruit extends Actor
     public BossFruit()
     {
         GreenfootImage img = new GreenfootImage("newaibossfruit.png");
-        img.scale(img.getWidth() / 7, img.getHeight() / 7);
+        img.scale(img.getWidth() / 12, img.getHeight() / 12);
         img.setTransparency(0); // start invisible
         setImage(img);
     }

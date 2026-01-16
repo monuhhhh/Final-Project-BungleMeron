@@ -86,7 +86,7 @@ public class MyWorld extends World
         {
         // Top-left shelf
         BossFruit boss = new BossFruit();
-        addObject(boss, 100, 140);
+        addObject(boss, 100, 160);
         }
 
     }

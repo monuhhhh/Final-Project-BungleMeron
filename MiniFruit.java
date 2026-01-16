@@ -9,17 +9,16 @@ public class MiniFruit extends Actor
     private boolean climbing = false;
 
     // Ladder X positions (pixels)
-    private int[] ladderX = {230, 310, 150, 70};
-
+    private int[] ladderX = {250, 305, 170, 90};
     // Where to stop climbing (Y pixel)
     private int[] ladderEndY = {260, 340, 460, 540};
-
+    
     public MiniFruit(int bossStrength)
     {
         damage = bossStrength;
 
-        GreenfootImage img = new GreenfootImage("newaibossfruit.png");
-        img.scale(img.getWidth() / 16, img.getHeight() / 16);
+        GreenfootImage img = new GreenfootImage("minifruit.png");
+        img.scale(img.getWidth() / 30, img.getHeight() / 30);
         setImage(img);
     }
 
