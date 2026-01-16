@@ -1,61 +1,62 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
-
 /**
- * CustomizeWorld allows players to select their Annoying fruit character
- * before the simulation starts.
- * 
- * The selected Annoying fruit will be used as the player character.
+ * CustomizeWorld allows players to select their fruit characters before the simulation starts.
+ * Each fruit has unique stats that affect the ending result of the game depends on which fruit player picks.
  * 
  * @author Carmen Cheung
- * @version 24 Nov, 2025
+ * @version 13 Jan, 2026
  */
 public class CustomizeWorld extends World
 {
-    // List of available Annoying fruit names
-    private ArrayList<String> annoyingFruitNames = new ArrayList<>();
+    //List of available fruit names
+    private ArrayList<String> fruitNames = new ArrayList<>();
     
     private int index = 0; 
     
-    // the fruit currently shown
-    private Fruits displayedFruit;
-
+    //the fruit currently shown
+    private PlayerFruit displayedFruit;
+    
+    private PlayerFruit selectedFruit; 
+    
     /**
      * Constructor for objects of class CustomizeWorld.
+     * 
      */
     public CustomizeWorld()
     {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         setBackground(new GreenfootImage("af.png"));
         
         // display fruits
-        annoyingFruitNames.add("Lemon");
-        annoyingFruitNames.add("Pineapple");
-        annoyingFruitNames.add("Apple");
-        annoyingFruitNames.add("Kiwi");
-        annoyingFruitNames.add("Orange");
+        fruitNames.add("Lemon");
+        fruitNames.add("Pineapple");
+        fruitNames.add("Apple");
+        fruitNames.add("Kiwi");
+        fruitNames.add("Orange");
         
         showCurrentFruit();
         
-        // Add navigation and selection buttons
+        //Add navigation and selection buttons
         addObject(new PrevButton(this), 60, 320);
         addObject(new AfterButton(this), 210, 320);
         addObject(new SelectButton(this), 135, 320);
     }
     
-    // Displays the current fruit and removes the previous fruit display
-    public void showCurrentFruit()
-    {
+    //Displays the current fruit and removes the previous fruit display
+    public void showCurrentFruit(){
+        //remove old display
         if (displayedFruit != null) {
             removeObject(displayedFruit);
         }
         
-        displayedFruit = createFruit(annoyingFruitNames.get(index));
-        displayedFruit.setPreviewMode(true);
+        displayedFruit = createFruit(fruitNames.get(index));
         
+        //Add the fruit to the world         
         addObject(displayedFruit, 130, 220);
         
-        // scale down the fruit image
+        //scale down the fruit image 
         GreenfootImage img = new GreenfootImage(displayedFruit.getImage());
         img.scale(img.getWidth() / 2, img.getHeight() / 2);
         displayedFruit.setImage(img);
@@ -64,47 +65,54 @@ public class CustomizeWorld extends World
         showStats(displayedFruit);
     }
     
-    // Create the appropriate Annoying fruit based on name
-    private Fruits createFruit(String name)
-    {
+    //create the appropriate fruit object based on name
+    private PlayerFruit createFruit(String name){
+        //Load image from Fruit folder
+        String imagePath = "Fruit/" + name + ".png"; 
+        //create fruit
         switch(name){
-            case "Lemon": return new AnnoyingLemon(1);
-            case "Pineapple": return new AnnoyingPineapple(1);
-            case "Apple": return new AnnoyingApple(1);
-            case "Kiwi": return new AnnoyingKiwi(1);
-            case "Orange": return new AnnoyingOrange(1);
+            case "Lemon": return new Lemon(imagePath);
+            case "Pineapple": return new Pineapple(imagePath);
+            case "Apple": return new Apple(imagePath);
+            case "Kiwi": return new Kiwi(imagePath);
+            case "Orange": return new Orange(imagePath);
+            default:
+                System.out.println("Warning: No class found for fruit: " + name);
+                return null;
         }
-        return null;
+         
     }
     
-    // Displays stats for the selected fruit
-    private void showStats(Fruits f)
-    {
+    private void showStats(PlayerFruit f){
+        // Clear previous text
         showText("", 420, 160);
         showText("", 420, 190);
         showText("", 420, 220);
+        showText("", 420, 255);
     
-        showText("HP: " + (int)f.hp, 420, 160);
-        showText("Max HP: " + (int)f.maxHP, 420, 190);
-        showText("Strength: " + (int)f.strength, 420, 220);
+        showText(" HP: " + (int)f.hp, 420, 160);
     }
     
-    public void nextFruit()
-    {
-        index = (index + 1) % annoyingFruitNames.size();
+    public void nextFruit(){
+        index = (index + 1) % fruitNames.size();
         showCurrentFruit();
     }
     
-    public void prevFruit()
-    {
-        index = (index - 1 + annoyingFruitNames.size()) % annoyingFruitNames.size();
+    public void prevFruit(){
+        index = (index - 1 + fruitNames.size()) % fruitNames.size();
         showCurrentFruit();
     }
     
-    // Finalizes selection and starts the game
-    public void selectFruit()
-    {
-        //MyWorld.selectedPlayerFruit = displayedFruit;
-        Greenfoot.setWorld(new MyWorld());
+    public void selectFruit() { 
+        selectedFruit = displayedFruit; 
+        
+        //Pass selected fruit to main world
+        MyWorld.selectedFruit = selectedFruit; 
+        
+        Greenfoot.setWorld(new MyWorld()); 
+    }
+    
+    public PlayerFruit getSelectedFruit() {
+        return displayedFruit;
     }
 }

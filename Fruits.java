@@ -10,7 +10,7 @@ import java.util.List;
  */
 public abstract class Fruits extends SuperSmoothMover
 {
-    protected double speed, maxSpeed, strength, hp, maxHP, reactionTime;
+    protected double speed, maxSpeed, strength, hp, maxHP;
     protected boolean awake = true;
     protected boolean knockedDown = false;
     
@@ -54,10 +54,8 @@ public abstract class Fruits extends SuperSmoothMover
     }
 
     //subclasses can then customize these variables for the unique identity of each fruit 
-    protected void initStats(int hp, int maxHP, int strength){
+    protected void initStats(int hp){
         this.hp = hp;
-        this.maxHP = maxHP;
-        this.strength = strength;
     }
     
     /**

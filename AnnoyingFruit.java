@@ -15,20 +15,14 @@ public abstract class AnnoyingFruit extends Fruits
     protected int jumpStrength = 15;
     
     //constructor for AnnoyingFruit (player)
-    public AnnoyingFruit(
-        int direction,
-        String imagePath,
-        double hp,
-        double maxHP,
-        double strength
-    ){
+    public AnnoyingFruit(int direction) {
         super(direction);
-        setImage(imagePath);
-        initStats(hp, maxHP, strength, 0); // reactionTime not used for player
     }
     
     public void act() {
-        if (frozen) return;
+        super.act();   // ← THIS IS NON-NEGOTIABLE
+        if (previewMode || frozen) return;
+    
         handleMovement();
         applyGravity();
     }
