@@ -1,7 +1,21 @@
 #BlueJ class context
 comment0.target=CustomizeWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ CustomizeWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ CustomizeWorld\ allows\ players\ to\ select\ their\ fruit\ characters\ before\ the\ simulation\ starts.\n\ Each\ fruit\ has\ unique\ stats\ that\ affect\ the\ ending\ result\ of\ the\ game\ depends\ on\ which\ fruit\ player\ picks.\n\ \n\ @author\ Carmen\ Cheung\n\ @version\ 13\ Jan,\ 2026\n
 comment1.params=
 comment1.target=CustomizeWorld()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ CustomizeWorld.\r\n\ \r\n
-numComments=2
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ CustomizeWorld.\n\ \n
+comment2.params=
+comment2.target=void\ showCurrentFruit()
+comment3.params=name
+comment3.target=PlayerFruit\ createFruit(java.lang.String)
+comment4.params=f
+comment4.target=void\ showStats(PlayerFruit)
+comment5.params=
+comment5.target=void\ nextFruit()
+comment6.params=
+comment6.target=void\ prevFruit()
+comment7.params=
+comment7.target=void\ selectFruit()
+comment8.params=
+comment8.target=PlayerFruit\ getSelectedFruit()
+numComments=9

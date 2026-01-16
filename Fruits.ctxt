@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Fruits
-comment0.text=\r\n\ Fruits\ is\ a\ superclass\ for\ all\ fruit\ characters\ in\ the\ game.\r\n\ It\ defines\ stats\ and\ core\ behaviours\ shared\ by\ all\ fruits.\r\n\ \r\n\ @author\ Monika\ Kouyoumdjian\r\n\ @version\ 24\ Nov,\ 2025\r\n
+comment0.text=\n\ Fruits\ is\ a\ superclass\ for\ all\ fruit\ characters\ in\ the\ game.\n\ It\ defines\ stats\ and\ core\ behaviours\ shared\ by\ all\ fruits.\n\ \n\ @author\ Monika\ Kouyoumdjian\n\ @version\ 24\ Nov,\ 2025\n
 comment1.params=rate
 comment1.target=void\ setSpawnRate(int)
 comment10.params=
@@ -21,11 +21,11 @@ comment3.params=direction
 comment3.target=Fruits(int)
 comment4.params=b
 comment4.target=void\ setPreviewMode(boolean)
-comment5.params=hp\ maxHP\ strength
-comment5.target=void\ initStats(int,\ int,\ int)
+comment5.params=hp
+comment5.target=void\ initStats(int)
 comment6.params=
 comment6.target=void\ act()
-comment6.text=\r\n\ Act\ -\ do\ whatever\ the\ Fruit\ wants\ to\ do.\r\n\ This\ method\ is\ called\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ is\ pressed.\r\n
+comment6.text=\n\ Act\ -\ do\ whatever\ the\ Fruit\ wants\ to\ do.\n\ This\ method\ is\ called\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ is\ pressed.\n
 comment7.params=
 comment7.target=void\ animateRocking()
 comment8.params=other
