@@ -19,11 +19,11 @@ public abstract class PlayerFruit extends Fruits
     public PlayerFruit(
         int direction,
         String imagePath,
-        int hp)
+        int hp, int maxHP)
     {
         super(direction);
         setImage(imagePath);
-        initStats(hp); // reactionTime not used for player
+        initStats(hp, maxHP); // reactionTime not used for player
     }
     
     public void act() {
@@ -117,7 +117,8 @@ public abstract class PlayerFruit extends Fruits
         int gridValue = world.getGridValue(getX(), getY());
 
         if (gridValue == 5) {
-            Greenfoot.setWorld(new TitleWorld()); // or NextWorld()
+            world = (MyWorld) getWorld();
+            world.nextLevel();
         }
     }
     

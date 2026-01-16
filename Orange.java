@@ -14,7 +14,7 @@ public class Orange extends PlayerFruit
      */
     public Orange(String imagePath)
     {
-        super(1, imagePath, 100); // direction, imagePath, hp
+        super(1, imagePath, 70, 100); // direction, imagePath, hp
     }
     
     public void act()

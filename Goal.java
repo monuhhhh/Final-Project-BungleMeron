@@ -16,5 +16,4 @@ public class Goal extends Actor
         img.fill();
         setImage(img);
     }
-    
 }
