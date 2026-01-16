@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;  
 
 /**
  * This boss fruit is inspired by Donkey Kong, but it's an AI Watermelon It's purpose is to spawn, 
@@ -14,6 +14,9 @@ public class BossFruit extends Actor
     private int hp = 200;
     private int strength = 10;
 
+    //calculating what level we're on, what is the constant (2x+10) x = level you're at
+    //increasing hp level 
+    
     // Animation variables
     private int fadeAlpha = 0;      // starts invisible
     private boolean fadingIn = true;
