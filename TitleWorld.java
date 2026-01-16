@@ -23,4 +23,3 @@ public class TitleWorld extends World
         addObject(start, getWidth()/2, getHeight()/2 + 80); 
     }
 }
-
