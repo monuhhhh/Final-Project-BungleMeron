@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=BossFruit
-comment0.text=\n\ Write\ a\ description\ of\ class\ BossFruit\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ This\ boss\ fruit\ is\ inspired\ by\ Donkey\ Kong,\ but\ it's\ an\ AI\ Watermelon\ It's\ purpose\ is\ to\ spawn,\ \n\ then\ it\ shoots\ balls\ out\ of\ itself\ onto\ the\ platforms\ and\ down\ the\ platforms\ as\ obstacles\ for\ the\ player.\ \n\ \n\ @author\ (Kalkie)\ \n\ @version\ (Jan\ 2025)\n
 comment1.params=
 comment1.target=BossFruit()
 comment2.params=

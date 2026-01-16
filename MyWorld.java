@@ -80,6 +80,15 @@ public class MyWorld extends World
         }
         
         placeObjects();
+        
+        // spawning boss
+        if (levelNumber == 1)
+        {
+        // Top-left shelf
+        BossFruit boss = new BossFruit();
+        addObject(boss, 100, 140);
+        }
+
     }
     
     private void placeObjects() {
