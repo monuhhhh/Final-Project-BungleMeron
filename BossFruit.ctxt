@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=BossFruit
+comment0.text=\n\ Write\ a\ description\ of\ class\ BossFruit\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=BossFruit()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ fadeInEffect()
+comment3.text=\n\ Slowly\ fades\ the\ boss\ in\ when\ the\ level\ starts\n
+comment4.params=
+comment4.target=void\ shakeInPlace()
+comment4.text=\n\ Small\ shaking\ animation\ to\ feel\ "alive"\n
+comment5.params=
+comment5.target=void\ throwMiniFruit()
+comment5.text=\n\ Throws\ mini\ fruits\ occasionally\n
+comment6.params=damage
+comment6.target=void\ takeDamage(int)
+comment6.text=\n\ Boss\ takes\ damage\n
+numComments=7
