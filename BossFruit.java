@@ -1,10 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BossFruit here.
+ * This boss fruit is inspired by Donkey Kong, but it's an AI Watermelon It's purpose is to spawn, 
+ * then it shoots balls out of itself onto the platforms and down the platforms as obstacles for the player. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Kalkie) 
+ * @version (Jan 2025)
  */
 
 public class BossFruit extends Actor
@@ -22,7 +23,7 @@ public class BossFruit extends Actor
 
     public BossFruit()
     {
-        GreenfootImage img = new GreenfootImage("Fruit/Watermelon.png");
+        GreenfootImage img = new GreenfootImage("newaibossfruit.png");
         img.scale(img.getWidth() / 3, img.getHeight() / 3);
         img.setTransparency(0); // start invisible
         setImage(img);

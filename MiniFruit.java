@@ -12,7 +12,7 @@ public class MiniFruit extends Actor
     {
         damage = bossStrength;
 
-        GreenfootImage img = new GreenfootImage("Fruit/Watermelon.png");
+        GreenfootImage img = new GreenfootImage("newaibossfruit.png");
         img.scale(img.getWidth() / 6, img.getHeight() / 6);
         setImage(img);
     }
