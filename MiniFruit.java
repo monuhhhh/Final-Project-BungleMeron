@@ -9,7 +9,7 @@ public class MiniFruit extends Actor
     private boolean climbing = false;
 
     // Ladder X positions (pixels)
-    private int[] ladderX = {220, 300, 140, 60};
+    private int[] ladderX = {230, 310, 150, 70};
 
     // Where to stop climbing (Y pixel)
     private int[] ladderEndY = {260, 340, 460, 540};
