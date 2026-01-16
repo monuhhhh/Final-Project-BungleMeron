@@ -10,7 +10,7 @@ import java.util.List;
  */
 public abstract class Fruits extends SuperSmoothMover
 {
-    protected double speed, maxSpeed, strength, hp, maxHP, reactionTime;
+    protected double speed, maxSpeed, strength, hp, maxHP;
     protected boolean awake = true;
     protected boolean knockedDown = false;
     

@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * 
  * The selected Annoying fruit will be used as the player character.
  * 
- * @author Carmen Cheung
+ * @author Monika kouyoumdjain and Carmen Cheung
  * @version 24 Nov, 2025
  */
 public class CustomizeWorld extends World
@@ -19,6 +19,9 @@ public class CustomizeWorld extends World
     
     // the fruit currently shown
     private Fruits displayedFruit;
+    
+    public static String selectedFruitName;
+
 
     /**
      * Constructor for objects of class CustomizeWorld.
@@ -102,9 +105,8 @@ public class CustomizeWorld extends World
     }
     
     // Finalizes selection and starts the game
-    public void selectFruit()
-    {
-        //MyWorld.selectedPlayerFruit = displayedFruit;
+    public void selectFruit(){
+        selectedFruitName = annoyingFruitNames.get(index);
         Greenfoot.setWorld(new MyWorld());
     }
 }

@@ -6,13 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Monika
  * @version 24 Nov, 2025
  */
-public class AnnoyingApple extends AnnoyingFruit
+public class AnnoyingOrange extends AnnoyingFruit
 {
-    public AnnoyingApple(int direction){
+    public AnnoyingOrange(int direction){
         super(direction);
         initStats(100, 100, 70);
-        setImage("AnnoyingFruit/AnnoyingApple.png");
+        setImage("AnnoyingFruit/AnnoyingOrange.png");
     }
 }
-
-
