@@ -231,9 +231,5 @@ public class MyWorld extends World
             }
         }
         
-        // Spawn Boss Fruit at top-left shelf
-        BossFruit boss = new BossFruit();
-addObject(boss, 60, 140); // adjust Y if needed
-
     }
 }
