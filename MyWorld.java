@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.UserInfo;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class MyWorld extends World
 {
-    // Static variable to hold the selected fruit from CustomizeWorld
+    // Static variable to hold the selected fruit from aCustomizeWorld
     public static PlayerFruit selectedFruit;
     
     private int[][] grid;
@@ -233,6 +233,15 @@ public class MyWorld extends World
         }
         // Create a new instance of the same fruit type
         PlayerFruit player = recreateFruit(selectedFruit);
+        
+        UserInfo user = UserInfo.getMyInfo();
+        if(user != null){
+            int savedHP = user.getInt(0);
+            if(savedHP > 0){
+                player.hp = savedHP; 
+            }
+        }
+        
         addObject(player, x, y);
         
         // Scale the fruit image appropriately for gameplay
@@ -242,6 +251,8 @@ public class MyWorld extends World
         
         player.onGround = true;
         player.yVelocity = 0;
+        
+        updateLifeCounter(player.hp); 
     }
     
     /**
@@ -294,6 +305,10 @@ public class MyWorld extends World
      * Progress to the next level
      */
     public void nextLevel() {
+        //save player hp
+        PlayerFruit player = getObjects(PlayerFruit.class).get(0);
+        savePlayerHP(player.hp);
+        
         currentLevel++;
         buildLevel(currentLevel);
     }
@@ -346,12 +361,21 @@ public class MyWorld extends World
     }
     
     public void lose() {//monika
-        showText("GAME OVER", getWidth() / 2, getHeight() / 2);
-        Greenfoot.stop(); 
+        PlayerFruit player = getObjects(PlayerFruit.class).get(0);
+        savePlayerHP(player.hp); 
+        
+        Greenfoot.setWorld(new EndWorld(player.hp, currentLevel));
     }
-    
     
     public void updateLifeCounter(int hp) { //monika
         showText("HP: " + hp, getWidth() - 60, 30); // top right, like level number
+    }
+    
+    public void savePlayerHP(int hp) {
+        UserInfo user = UserInfo.getMyInfo();
+        if (user != null) {
+            user.setInt(0, hp);   // slot 0 stores HP
+            user.store();        
+        }
     }
 }

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=EndWorld
+comment0.text=\n\ Write\ a\ description\ of\ class\ EndWorld\ here.\n\ \n\ @author\ Carmen\ Cheung\n\ @version\ Jan\ 16,\ 2026\n
+comment1.params=hp\ level
+comment1.target=EndWorld(int,\ int)
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ EndWorld.\n\ \n
+comment2.params=
+comment2.target=void\ act()
+numComments=3
