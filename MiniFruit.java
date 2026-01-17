@@ -12,7 +12,7 @@ public class MiniFruit extends Actor
     private int[] ladderX = {250, 305, 170, 90};
     // Where to stop climbing (Y pixel)
     private int[] ladderEndY = {260, 340, 460, 540};
-    
+
     public MiniFruit(int bossStrength)
     {
         damage = bossStrength;
