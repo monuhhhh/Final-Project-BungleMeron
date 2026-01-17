@@ -20,10 +20,13 @@ public class MyWorld extends World
     
     private int dropletTimer = 0;
     
+    
     public MyWorld()
     {    
         super(480, 675, 1);
         setBackground("levelbg.png");
+        
+        
         initializeGrid();
         buildLevel(currentLevel);
         showGrid(); 
@@ -148,6 +151,10 @@ public class MyWorld extends World
         }
         placeObjects();
         showLevelNumber(); 
+        
+        PlayerFruit player = (PlayerFruit)getObjects(PlayerFruit.class).get(0);
+        updateLifeCounter(player.hp);
+        
         spawnBoss();
         spawnDroplets();
         
@@ -224,7 +231,6 @@ public class MyWorld extends World
             // Default to Lemon if no fruit was selected
             selectedFruit = new Lemon("Fruit/Lemon.png");
         }
-        
         // Create a new instance of the same fruit type
         PlayerFruit player = recreateFruit(selectedFruit);
         addObject(player, x, y);
@@ -345,8 +351,7 @@ public class MyWorld extends World
     }
     
     
-    public void updateLifeCounter(int hp) {//monika
-        // temporary placeholder 
-        System.out.println("Player HP: " + hp);
+    public void updateLifeCounter(int hp) { //monika
+        showText("HP: " + hp, getWidth() - 60, 30); // top right, like level number
     }
 }

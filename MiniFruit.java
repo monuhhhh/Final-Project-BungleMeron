@@ -3,7 +3,7 @@ import greenfoot.*;
 public class MiniFruit extends Actor
 {
     private int speed = 2;
-    private int damage;
+    private int damage = 10;
 
     private int stage = 0; // which ladder we are heading to
     private boolean climbing = false;
@@ -15,7 +15,7 @@ public class MiniFruit extends Actor
 
     public MiniFruit(int bossStrength)
     {
-        damage = bossStrength;
+        //damage = bossStrength;
 
         GreenfootImage img = new GreenfootImage("minifruit.png");
         img.scale(img.getWidth() / 30, img.getHeight() / 30);
@@ -94,7 +94,7 @@ public class MiniFruit extends Actor
     {
         PlayerFruit player = (PlayerFruit)getOneIntersectingObject(PlayerFruit.class);
 
-        if (player != null)
+        if (player != null )
         {
             player.damageMe(damage);
             getWorld().removeObject(this);

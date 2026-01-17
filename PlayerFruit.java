@@ -6,7 +6,7 @@ import greenfoot.*;
  * 
  * @author Monika and Carmen 
  * @version 24 Nov, 2025
- */
+ */  
 public abstract class PlayerFruit extends Fruits
 {
     //movement variables
@@ -165,30 +165,25 @@ public abstract class PlayerFruit extends Fruits
             }
         }
         
-        if (isTouching(MiniFruit.class)) {
-            MiniFruit mini = (MiniFruit) getOneIntersectingObject(MiniFruit.class);
-            if (mini != null) {
-                damageMe(mini.getDamage()); // just need a getter in MiniFruit
-                getWorld().removeObject(mini);
-            }
-        }
+        //minifruit collision in handles all in the minifruit 
     }
     
     
     
     public void damageMe(int damage) {//monika
+        if (damageCooldown > 0) return; // ignore if cooldown active
+    
         hp = Math.max(0, hp - damage);
-
+    
         MyWorld world = (MyWorld) getWorld();
         if (world != null) {
             world.updateLifeCounter(hp);
-    
             if (hp == 0) {
-                die(); // triggers Game Over
+                die();
             }
         }
     
-        damageCooldown = DAMAGE_COOLDOWN_TIME; // optional cooldown
+        damageCooldown = DAMAGE_COOLDOWN_TIME; // start cooldown
     }
 
     
