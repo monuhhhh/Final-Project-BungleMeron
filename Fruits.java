@@ -98,8 +98,13 @@ public abstract class Fruits extends SuperSmoothMover
     public void takeDamage(double dmg) {
         hp -= dmg;
         if (hp <= 0) {
-            isKnockedDown();
+            hp = 0;
+            die();
         }
+    }
+    
+    protected void die() {
+        removeFromWorld();
     }
     
     //Triggers the knockdown state

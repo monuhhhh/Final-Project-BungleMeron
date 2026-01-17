@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class MyWorld here.
  * 
- * @author Carmen Cheung 
+ * @author Carmen Cheung, Monika, Kalkie
  * @version 14 Jan, 2026
  */
 
@@ -146,6 +146,15 @@ public class MyWorld extends World
         }
         placeObjects();
         showLevelNumber(); 
+        
+        
+        // spawning boss
+        if (levelNumber == 1)//kalkie
+        {
+            // Top-left shelf
+            BossFruit boss = new BossFruit();
+            addObject(boss, 100, 160);
+        }
     }
     
     private void showLevelNumber() {
@@ -300,5 +309,16 @@ public class MyWorld extends World
                 }
             }
         }
+    }
+    
+    public void lose() {//monika
+        showText("GAME OVER", getWidth() / 2, getHeight() / 2);
+        Greenfoot.stop(); 
+    }
+    
+    
+    public void updateLifeCounter(int hp) {//monika
+        // temporary placeholder 
+        System.out.println("Player HP: " + hp);
     }
 }
