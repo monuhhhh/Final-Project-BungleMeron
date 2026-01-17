@@ -59,7 +59,20 @@ public abstract class PlayerFruit extends Fruits
         }
         checkCollision();
         checkGoal();
+        
+        if(MyWorld.currentLevel = 5){
+            
+        }
     } 
+    
+    
+    public void gainPower(int currentLevel) {//monika
+        if (MyWorld.currentLevel = 5){
+            
+        }
+    }
+    
+    
     
     //handles left/right movement and jumping
     protected void handleMovement() {//monika
