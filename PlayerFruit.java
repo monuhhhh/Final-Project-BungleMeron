@@ -1,5 +1,6 @@
 import greenfoot.*;
 
+//adding a comment so it will accept my commit 
 /**
  * AnnoyingFruit is the player-controlled fruit.
  * The player selects which annoying fruit to play as.
@@ -58,7 +59,7 @@ public abstract class PlayerFruit extends Fruits
             applyGravity();
         }
         checkCollision();
-        checkGoal();
+        checkGoal(); 
         
         //gainPower();
     } 
