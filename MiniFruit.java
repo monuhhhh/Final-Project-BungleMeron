@@ -3,7 +3,7 @@ import greenfoot.*;
 public class MiniFruit extends Actor
 {
     private int speed = 2;
-    private int damage = 10;
+    private int damage;
 
     private int stage = 0; // which ladder we are heading to
     private boolean climbing = false;
@@ -15,7 +15,7 @@ public class MiniFruit extends Actor
 
     public MiniFruit(int bossStrength)
     {
-        //damage = bossStrength;
+        damage = bossStrength;
 
         GreenfootImage img = new GreenfootImage("minifruit.png");
         img.scale(img.getWidth() / 30, img.getHeight() / 30);
@@ -26,8 +26,9 @@ public class MiniFruit extends Actor
         return damage;
     }
 
-    public void act()
-    {
+    public void act(){
+        //if (isTouching(MiniFruit.class)) return;
+    
         if (stage >= ladderX.length)
         {
             moveTowardPlayer();
@@ -40,10 +41,10 @@ public class MiniFruit extends Actor
         {
             moveTowardLadder();
         }
-
-        checkPlayerHit();
+    
+        //checkPlayerHit();
     }
-
+    
     /* ---------------- PATH FOLLOWING ---------------- */
 
     private void moveTowardLadder()
@@ -53,7 +54,7 @@ public class MiniFruit extends Actor
         if (Math.abs(getX() - targetX) <= speed)
         {
             setLocation(targetX, getY());
-            climbing = true;
+            climbing = true; 
         }
         else if (getX() < targetX)
         {
@@ -78,6 +79,9 @@ public class MiniFruit extends Actor
 
     private void moveTowardPlayer()
     {
+            if (getWorld().getObjects(PlayerFruit.class).isEmpty()) return;
+
+            
         PlayerFruit player = (PlayerFruit)getWorld()
                 .getObjects(PlayerFruit.class)
                 .get(0);
@@ -88,16 +92,19 @@ public class MiniFruit extends Actor
             setLocation(getX() - speed, getY());
     }
 
-    /* ---------------- DAMAGE ---------------- */
-
-    private void checkPlayerHit()
-    {
+    /**
+    
+    private void checkPlayerHit(){
         PlayerFruit player = (PlayerFruit)getOneIntersectingObject(PlayerFruit.class);
-
-        if (player != null )
+    
+        if (player != null)
         {
-            player.damageMe(damage);
+            player.damageMe(10);   // exact damage
             getWorld().removeObject(this);
         }
-    }
+    }*/
+    
+ 
 }
+   
+
