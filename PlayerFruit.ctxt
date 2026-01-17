@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=PlayerFruit
-comment0.text=\r\n\ AnnoyingFruit\ is\ the\ player-controlled\ fruit.\r\n\ The\ player\ selects\ which\ annoying\ fruit\ to\ play\ as.\r\n\ \r\n\ @author\ Monika\ and\ Carmen\ \r\n\ @version\ 24\ Nov,\ 2025\r\n
+comment0.text=\n\ AnnoyingFruit\ is\ the\ player-controlled\ fruit.\n\ The\ player\ selects\ which\ annoying\ fruit\ to\ play\ as.\n\ \n\ @author\ Monika\ and\ Carmen\ \n\ @version\ 24\ Nov,\ 2025\n
 comment1.params=direction\ imagePath\ initialHp\ maxHP
 comment1.target=PlayerFruit(int,\ java.lang.String,\ int,\ int)
 comment10.params=
