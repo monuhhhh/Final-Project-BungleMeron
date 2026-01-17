@@ -5,7 +5,7 @@ import greenfoot.*;
  * AnnoyingFruit is the player-controlled fruit.
  * The player selects which annoying fruit to play as.
  * 
- * @author Monika and Carmen 
+ * @author  Carmen and monika
  * @version 24 Nov, 2025
  */  
 public abstract class PlayerFruit extends Fruits
@@ -24,14 +24,10 @@ public abstract class PlayerFruit extends Fruits
     protected int maxHp = 100;
     
     //constructor for PlayerFruit (player)
-    public PlayerFruit(
-        int direction,
-        String imagePath,
-        int initialHp, int maxHP)
-    {
-        super(direction);
+    public PlayerFruit(String imagePath, int initialHp, int maxHP) {
+        super(1); // default direction, not important anymore
         setImage(imagePath);
-        
+    
         this.maxHp = maxHP;
         this.hp = initialHp;
     }
@@ -47,6 +43,8 @@ public abstract class PlayerFruit extends Fruits
     }
     
     public void act() {
+        
+        
         if (!(getWorld() instanceof MyWorld)) {
             return; // Don't do anything in CustomizeWorld
         }
@@ -58,6 +56,8 @@ public abstract class PlayerFruit extends Fruits
         if (!onLadder) {
             applyGravity();
         }
+        
+        checkMiniFruitCollision();
         checkCollision();
         checkGoal(); 
         
@@ -180,10 +180,34 @@ public abstract class PlayerFruit extends Fruits
         //minifruit collision in handles all in the minifruit 
     }
     
+    private void checkMiniFruitCollision(){//monika
+        MiniFruit hit = null;
+    
+        for (MiniFruit mf : getWorld().getObjects(MiniFruit.class))
+        {
+            double dx = mf.getX() - getX();
+            double dy = mf.getY() - getY();
+            double distance = Math.sqrt(dx * dx + dy * dy);
+    
+            if (distance < 30)  // collision radius (tweakable)
+            {
+                hit = mf;
+                break;
+            }
+        }
+    
+        if (hit != null)
+        {
+            damageMe(10);
+            getWorld().removeObject(hit);
+        }
+    }
+
     
     
+    /**
     public void damageMe(int damage) {//monika
-        if (damageCooldown > 0) return; // ignore if cooldown active
+        //if (damageCooldown > 0) return; // ignore if cooldown active
     
         hp = Math.max(0, hp - damage);
     
@@ -195,16 +219,40 @@ public abstract class PlayerFruit extends Fruits
             }
         }
     
-        damageCooldown = DAMAGE_COOLDOWN_TIME; // start cooldown
+        ///damageCooldown = DAMAGE_COOLDOWN_TIME; // start cooldown
+    }*/
+    
+    public void damageMe(int damage) {
+        // Apply damage
+        hp = Math.max(0, hp - damage);
+    
+        // Update UI
+        MyWorld world = (MyWorld)getWorld();
+        if (world != null) {
+            world.updateLifeCounter(hp);
+            if (hp == 0) {
+                // Player died
+                die();
+            }
+        }
     }
 
-    
+    /**
     public void heal(int amount) {//monika
         hp = Math.min(hp + amount, maxHp); // caps at maxHp
         MyWorld world = (MyWorld)getWorld(); 
         if (world != null) world.updateLifeCounter(hp); // update UI
     } 
-    
+    */
+   
+    // Optional heal method
+    public void heal(int amount) {
+        hp = Math.min(hp + amount, maxHp);
+        MyWorld world = (MyWorld)getWorld();
+        if (world != null) {
+            world.updateLifeCounter(hp);
+        }
+    }
     
     
     //edge detection 

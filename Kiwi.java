@@ -14,7 +14,7 @@ public class Kiwi extends PlayerFruit
      */
     public Kiwi(String imagePath)
     {
-        super(1, imagePath, 70, 100); // direction, imagePath, hp
+        super(imagePath, 70, 100); // direction, imagePath, hp
     }
     
     public void act()
