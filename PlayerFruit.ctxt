@@ -11,6 +11,7 @@ comment3.params=
 comment3.target=void\ act()
 comment4.params=
 comment4.target=void\ handleMovement()
+comment4.text=\r\n\ \ \ \ public\ void\ gainPower(int\ currentLevel)\ {//monika\r\n\ \ \ \ \ \ \ \ if\ (MyWorld.currentLevel\ \=\ 5){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n
 comment5.params=
 comment5.target=void\ applyGravity()
 comment6.params=
