@@ -20,9 +20,9 @@ public class EndWorld extends World
         super(600, 400, 1); 
         setBackground(new GreenfootImage("end.png")); 
         
-        showText("Final HP: " + hp, getWidth() / 2, 300);
-        showText("Level Reached: " + level, getWidth() / 2, 350);
-        showText("Press r to Restart", getWidth() / 2, 450);
+        showText("Final HP: " + hp, getWidth() / 2, 150);
+        showText("Level Reached: " + level, getWidth() / 2, 200);
+        showText("Press r to Restart", getWidth() / 2, 250);
     }
 
     public void act() {
@@ -34,7 +34,7 @@ public class EndWorld extends World
                 user.store();
             }
             
-            Greenfoot.setWorld(new MyWorld());
+            Greenfoot.setWorld(new TitleWorld());
         }
     }
 }
