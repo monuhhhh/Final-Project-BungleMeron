@@ -21,6 +21,10 @@ public class MiniFruit extends Actor
         img.scale(img.getWidth() / 30, img.getHeight() / 30);
         setImage(img);
     }
+    
+    public int getDamage() {
+        return damage;
+    }
 
     public void act()
     {
@@ -92,7 +96,7 @@ public class MiniFruit extends Actor
 
         if (player != null)
         {
-            player.takeDamage(damage);
+            player.damageMe(damage);
             getWorld().removeObject(this);
         }
     }

@@ -18,6 +18,8 @@ public class MyWorld extends World
     private int gridHeight = 17; // Adjusted for 675 height (675/40 ≈ 17)
     private int currentLevel = 1;
     
+    private int dropletTimer = 0;
+    
     public MyWorld()
     {    
         super(480, 675, 1);
@@ -146,16 +148,42 @@ public class MyWorld extends World
         }
         placeObjects();
         showLevelNumber(); 
+        spawnBoss();
+        spawnDroplets();
         
         
-        // spawning boss
-        if (levelNumber == 1)//kalkie
+    }        
+        
+    private void spawnBoss(){//kalkie
+        // Spawn exactly one boss per level
+        BossFruit boss = new BossFruit();
+        addObject(boss, 100, 160); 
+    }
+    
+    private void spawnDroplets(){
+        dropletTimer++;
+     
+        // Faster spawning at higher levels
+        int spawnDelay = Math.max(180 - currentLevel * 30, 60);
+    
+        if (dropletTimer >= spawnDelay)
         {
-            // Top-left shelf
-            BossFruit boss = new BossFruit();
-            addObject(boss, 100, 160);
+            dropletTimer = 0;
+    
+            // random x aligned to grid
+            int col = Greenfoot.getRandomNumber(gridWidth);
+            int x = col * cellSize + cellSize / 2;
+            int y = 0;
+    
+            // random fall delay so they don't all drop at once
+            int fallDelay = Greenfoot.getRandomNumber(60);
+    
+            addObject(new Droplets(fallDelay), x, y);
         }
     }
+    
+    
+    
     
     private void showLevelNumber() {
         showText("Level " + currentLevel, 60, 30); 

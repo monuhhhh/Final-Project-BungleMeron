@@ -19,28 +19,23 @@ public abstract class PlayerFruit extends Fruits
     protected int damageCooldown = 0;
     protected final int DAMAGE_COOLDOWN_TIME = 30;
     
+    protected int hp;
+    protected int maxHp = 100;
+    
     //constructor for PlayerFruit (player)
     public PlayerFruit(
         int direction,
         String imagePath,
-        int hp, int maxHP)
+        int initialHp, int maxHP)
     {
         super(direction);
         setImage(imagePath);
-        initStats(hp, maxHP); // reactionTime not used for player
+        
+        this.maxHp = maxHP;
+        this.hp = initialHp;
     }
     
-    public void takeDamage(double dmg) {//monika
-        if (damageCooldown > 0) return;
-      
-        hp -= dmg;
-        damageCooldown = DAMAGE_COOLDOWN_TIME;
     
-        if (hp <= 0) {
-            hp = 0;
-            die();
-        }
-    }
     
     @Override
     protected void die() {
@@ -153,49 +148,55 @@ public abstract class PlayerFruit extends Fruits
     private void checkCollision() {//monika - used code from gr 11 project as base 
         if (isTouching(Droplets.class)) {
             Droplets droplet = (Droplets) getOneIntersectingObject(Droplets.class);
- 
+        
             if (droplet != null) {
-                // Get the positions of the player and Perry
                 int playerBottom = getY() + getImage().getHeight() / 2;
                 int dropletTop  = droplet.getY() - droplet.getImage().getHeight() / 2;
-    
-                if (playerBottom <= dropletTop  + 5) {
-                    // Player jumped on top of Perry
-                    if (hp < maxHP) {//make sure doesnt surpasse max hp
-                        heal(1); 
-                    } // Add a health
-                    getWorld().removeObject(droplet); // Remove Perry after being jumped on
+        
+                if (playerBottom <= dropletTop + 5) {
+                    // Player jumped on top
+                    heal(1); 
                 } else {
-                    // Player touched droplet from the side or bottom
-                    takeDamage(1);
+                    // Side or bottom hit
+                    damageMe(1);
                 }
+        
+                getWorld().removeObject(droplet);
             }
         }
         
-        
-        if (isTouching(BossFruit.class)) {//someone else wprking on this
-            // Decrease the player's life
-            damageMe(1); 
+        if (isTouching(MiniFruit.class)) {
+            MiniFruit mini = (MiniFruit) getOneIntersectingObject(MiniFruit.class);
+            if (mini != null) {
+                damageMe(mini.getDamage()); // just need a getter in MiniFruit
+                getWorld().removeObject(mini);
+            }
         }
     }
     
     
     
     public void damageMe(int damage) {//monika
-        takeDamage(damage); 
-    
+        hp = Math.max(0, hp - damage);
+
         MyWorld world = (MyWorld) getWorld();
         if (world != null) {
-            world.updateLifeCounter((int) hp);
+            world.updateLifeCounter(hp);
+    
+            if (hp == 0) {
+                die(); // triggers Game Over
+            }
         }
+    
+        damageCooldown = DAMAGE_COOLDOWN_TIME; // optional cooldown
     }
+
     
     public void heal(int amount) {//monika
-        hp += amount;
-        if (hp > maxHP) {
-            hp = maxHP;
-        }
-    }
+        hp = Math.min(hp + amount, maxHp); // caps at maxHp
+        MyWorld world = (MyWorld)getWorld(); 
+        if (world != null) world.updateLifeCounter(hp); // update UI
+    } 
     
     
     
