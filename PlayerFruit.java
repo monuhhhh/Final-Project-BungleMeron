@@ -173,7 +173,7 @@ public abstract class PlayerFruit extends Fruits
         }
         
         
-        if (isTouching(Boss.class)) {//someone else wprking on this
+        if (isTouching(BossFruit.class)) {//someone else wprking on this
             // Decrease the player's life
             damageMe(1); 
         }

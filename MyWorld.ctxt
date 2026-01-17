@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MyWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ Carmen\ Cheung\ \r\n\ @version\ 14\ Jan,\ 2026\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ Carmen\ Cheung,\ Monika,\ Kalkie\r\n\ @version\ 14\ Jan,\ 2026\r\n
 comment1.params=
 comment1.target=MyWorld()
 comment10.params=x\ y
@@ -15,6 +15,10 @@ comment13.target=int\ getCurrentLevel()
 comment14.params=
 comment14.target=void\ showGrid()
 comment14.text=\r\n\ Display\ grid\ lines\ and\ numbers\ for\ debugging\r\n
+comment15.params=
+comment15.target=void\ lose()
+comment16.params=hp
+comment16.target=void\ updateLifeCounter(int)
 comment2.params=
 comment2.target=void\ initializeGrid()
 comment3.params=levelNumber
@@ -33,4 +37,4 @@ comment8.params=x\ y
 comment8.target=int\ getGridValue(int,\ int)
 comment9.params=x\ y
 comment9.target=boolean\ isPlatformBelow(int,\ int)
-numComments=15
+numComments=17

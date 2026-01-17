@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=MiniFruit
+comment1.params=bossStrength
+comment1.target=MiniFruit(int)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ moveTowardLadder()
+comment3.text=----------------\ PATH\ FOLLOWING\ ----------------
+comment4.params=
+comment4.target=void\ climbDown()
+comment5.params=
+comment5.target=void\ moveTowardPlayer()
+comment6.params=
+comment6.target=void\ checkPlayerHit()
+comment6.text=----------------\ DAMAGE\ ----------------
+numComments=7
