@@ -23,6 +23,12 @@ public class BossFruit extends Actor
 
     private int shakeTimer = 0;
     private int throwTimer = 0;
+    
+    private boolean isFalling = false;
+    private boolean isAtBottom = false;
+
+    private double yVelocity = 0;
+    private double gravity = 0.5;
 
     public BossFruit()
     {
@@ -34,9 +40,21 @@ public class BossFruit extends Actor
 
     public void act()
     {
+        if(isFalling){
+            fall();
+            return;
+        }
+        
         fadeInEffect();
         shakeInPlace();
-        throwMiniFruit();
+        
+        if (!isAtBottom) {
+            throwMiniFruit();
+        }
+        
+        if(isAtBottom){
+            Greenfoot.setWorld(new VictoryWorld());
+        }
     }
 
     /**
@@ -80,6 +98,9 @@ public class BossFruit extends Actor
      */
     private void throwMiniFruit()
     {
+        if (isFalling) {
+            return; // Don't throw fruits while falling
+        }
         throwTimer++;
 
         if (throwTimer > 120) // every ~2 seconds
@@ -100,6 +121,28 @@ public class BossFruit extends Actor
         if (hp <= 0)
         {
             getWorld().removeObject(this);
+        }
+    }
+    
+    public void startFalling(){
+        isFalling = true;
+    }
+    
+    private void fall(){
+        yVelocity += gravity; 
+        int newY = getY() + (int)yVelocity;
+        
+        MyWorld world = (MyWorld) getWorld();
+        
+        // Check if boss reached the bottom
+        if (newY >= world.getHeight() - getImage().getHeight() / 2) {
+            // Stop at the bottom
+            setLocation(getX(), world.getHeight() - getImage().getHeight() / 2);
+            isFalling = false;
+            isAtBottom = true;
+            yVelocity = 0;
+        } else {
+            setLocation(getX(), newY);
         }
     }
 }

@@ -162,6 +162,15 @@ public abstract class PlayerFruit extends Fruits
         }
     }
     
+    protected void checkButton() {
+        MyWorld world = (MyWorld) getWorld();
+        int gridValue = world.getGridValue(getX(), getY());
+        if (gridValue == 3) {
+            world = (MyWorld) getWorld();
+            world.makeBossFall();
+        }
+    }
+    
     private void checkCollision() {//monika - used code from gr 11 project as base 
         if (isTouching(Droplets.class)) {
             Droplets droplet = (Droplets) getOneIntersectingObject(Droplets.class);
@@ -266,4 +275,6 @@ public abstract class PlayerFruit extends Fruits
             direction *= -1;
         }
     }
+    
+
 }

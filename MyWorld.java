@@ -26,7 +26,6 @@ public class MyWorld extends World
         super(480, 675, 1);
         setBackground("levelbg.png");
         
-        
         initializeGrid();
         buildLevel(currentLevel);
         showGrid(); 
@@ -149,6 +148,28 @@ public class MyWorld extends World
             };
             grid = level5; 
         }
+        else if (levelNumber == 6){
+            int[][] level6 = {
+                {0,0,0,0,0,0,0,0,0,0,0,0}, // Row 0 - space
+                {0,0,0,0,0,0,0,0,0,0,0,0}, // Row 1 - space
+                {0,0,0,0,0,0,0,0,0,0,0,0}, // Row 2 - space
+                {0,0,0,0,0,0,0,0,0,0,0,0}, // Row 3 - space
+                {0,0,0,0,0,0,0,0,2,0,3,0}, // Row 4 - top shelf with goal
+                {1,1,1,1,2,1,1,1,2,1,1,1}, // Row 5 - ladder
+                {0,0,0,0,2,0,0,0,0,0,0,0}, // Row 6 - ladder
+                {1,1,1,1,1,1,1,1,2,1,1,1}, // Row 7 - second shelf
+                {0,0,0,0,0,0,0,0,2,0,0,0}, // Row 8 - Ladder
+                {1,2,1,1,1,1,1,1,1,1,1,1}, // Row 9 - third shelf
+                {0,2,0,0,0,0,0,0,0,0,0,0}, // Row 10 - ladder
+                {0,0,0,0,0,0,0,0,0,0,0,0}, // Row 11 - ladder
+                {1,1,1,1,1,1,1,1,2,1,1,1}, // Row 12 - fourth shelf
+                {0,0,0,0,0,0,0,0,2,0,4,0}, // Row 13 - Ladder
+                {1,1,1,1,1,1,1,1,1,1,1,1}, // Row 14 - fifth shelf
+                {0,0,0,0,0,0,0,0,0,0,0,0}, // Row 15 - space
+                {0,0,0,0,0,0,0,0,0,0,0,0}  // Row 16 - space 
+            };
+            grid = level6; 
+        }
         placeObjects();
         showLevelNumber(); 
         
@@ -157,8 +178,6 @@ public class MyWorld extends World
         
         spawnBoss();
         spawnDroplets();
-        
-        
     }        
         
     private void spawnBoss(){//kalkie
@@ -189,9 +208,6 @@ public class MyWorld extends World
         }
     }
     
-    
-    
-    
     private void showLevelNumber() {
         showText("Level " + currentLevel, 60, 30); 
     }
@@ -209,8 +225,8 @@ public class MyWorld extends World
                     case 2: // Ladder
                         addObject(new Ladder(), x, y);
                         break;
-                    case 3: // Obstacle/ Block
-                        //addObject(new Block(), x, y);
+                    case 3: // Button
+                        addObject(new FinalButton(), x, y);
                         break;
                     case 4: // Player start - Use selected fruit from CustomizeWorld
                         addPlayerFruit(x, y);
@@ -376,6 +392,17 @@ public class MyWorld extends World
         if (user != null) {
             user.setInt(0, hp);   // slot 0 stores HP
             user.store();        
+        }
+    }
+    
+    /**
+     * Make the boss fall when button is pressed
+     */
+    public void makeBossFall() {
+        java.util.List<BossFruit> bosses = getObjects(BossFruit.class);
+        if (!bosses.isEmpty()) {
+            BossFruit boss = bosses.get(0);
+            boss.startFalling();
         }
     }
 }
