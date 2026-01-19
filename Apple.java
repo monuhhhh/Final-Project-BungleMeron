@@ -10,7 +10,7 @@ public class Apple extends PlayerFruit
 {
     public Apple(String imagePath)
     {
-        super(imagePath, 70, 100); // imagePath, starting HP, max HP
+        super(imagePath,"Aippidi Aoppidi Boo", 70, 100); // imagePath, starting HP, max HP
     }
     
     public void act()

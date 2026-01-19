@@ -22,17 +22,22 @@ public abstract class PlayerFruit extends Fruits
     
     protected int hp;
     protected int maxHp = 100;
+    protected String name; 
     
     //constructor for PlayerFruit (player)
-    public PlayerFruit(String imagePath, int initialHp, int maxHP) {
+    public PlayerFruit(String imagePath, String name, int initialHp, int maxHP) {
         super(1); // default direction, not important anymore
         setImage(imagePath);
     
+        this.name = name;
         this.maxHp = maxHP;
         this.hp = initialHp;
     }
     
-    
+    public String getName()
+    {
+        return name;
+    }
     
     @Override
     protected void die() {

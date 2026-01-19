@@ -1,29 +1,31 @@
 #BlueJ class context
 comment0.target=PlayerFruit
 comment0.text=\n\ AnnoyingFruit\ is\ the\ player-controlled\ fruit.\n\ The\ player\ selects\ which\ annoying\ fruit\ to\ play\ as.\n\ \n\ @author\ \ Carmen\ and\ monika\n\ @version\ 24\ Nov,\ 2025\n
-comment1.params=imagePath\ initialHp\ maxHP
-comment1.target=PlayerFruit(java.lang.String,\ int,\ int)
-comment10.params=amount
-comment10.target=void\ heal(int)
-comment10.text=\n\ \ \ \ public\ void\ heal(int\ amount)\ {//monika\n\ \ \ \ \ \ \ \ hp\ \=\ Math.min(hp\ +\ amount,\ maxHp);\ //\ caps\ at\ maxHp\n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)getWorld();\ \n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ world.updateLifeCounter(hp);\ //\ update\ UI\n\ \ \ \ }\ \n
-comment11.params=
-comment11.target=void\ checkEdge()
+comment1.params=imagePath\ name\ initialHp\ maxHP
+comment1.target=PlayerFruit(java.lang.String,\ java.lang.String,\ int,\ int)
+comment10.params=damage
+comment10.target=void\ damageMe(int)
+comment10.text=\n\ \ \ \ public\ void\ damageMe(int\ damage)\ {//monika\n\ \ \ \ \ \ \ \ //if\ (damageCooldown\ >\ 0)\ return;\ //\ ignore\ if\ cooldown\ active\n\ \ \ \ \n\ \ \ \ \ \ \ \ hp\ \=\ Math.max(0,\ hp\ -\ damage);\n\ \ \ \ \n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)\ getWorld();\n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ world.updateLifeCounter(hp);\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (hp\ \=\=\ 0)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die();\n\ \ \ \ \ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \n\ \ \ \ \ \ \ \ ///damageCooldown\ \=\ DAMAGE_COOLDOWN_TIME;\ //\ start\ cooldown\n}
+comment11.params=amount
+comment11.target=void\ heal(int)
+comment11.text=\n\ \ \ \ public\ void\ heal(int\ amount)\ {//monika\n\ \ \ \ \ \ \ \ hp\ \=\ Math.min(hp\ +\ amount,\ maxHp);\ //\ caps\ at\ maxHp\n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)getWorld();\ \n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ world.updateLifeCounter(hp);\ //\ update\ UI\n\ \ \ \ }\ \n
+comment12.params=
+comment12.target=void\ checkEdge()
 comment2.params=
-comment2.target=void\ die()
+comment2.target=java.lang.String\ getName()
 comment3.params=
-comment3.target=void\ act()
+comment3.target=void\ die()
 comment4.params=
-comment4.target=void\ handleMovement()
-comment4.text=\n\ \ \ \ public\ void\ gainPower(int\ currentLevel)\ {//monika\n\ \ \ \ \ \ \ \ if\ (MyWorld.currentLevel\ \=\ 5){\n\ \ \ \ \ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ }\n\ \ \ \ }\n
+comment4.target=void\ act()
 comment5.params=
-comment5.target=void\ applyGravity()
+comment5.target=void\ handleMovement()
+comment5.text=\n\ \ \ \ public\ void\ gainPower(int\ currentLevel)\ {//monika\n\ \ \ \ \ \ \ \ if\ (MyWorld.currentLevel\ \=\ 5){\n\ \ \ \ \ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ }\n\ \ \ \ }\n
 comment6.params=
-comment6.target=void\ checkGoal()
+comment6.target=void\ applyGravity()
 comment7.params=
-comment7.target=void\ checkCollision()
+comment7.target=void\ checkGoal()
 comment8.params=
-comment8.target=void\ checkMiniFruitCollision()
-comment9.params=damage
-comment9.target=void\ damageMe(int)
-comment9.text=\n\ \ \ \ public\ void\ damageMe(int\ damage)\ {//monika\n\ \ \ \ \ \ \ \ //if\ (damageCooldown\ >\ 0)\ return;\ //\ ignore\ if\ cooldown\ active\n\ \ \ \ \n\ \ \ \ \ \ \ \ hp\ \=\ Math.max(0,\ hp\ -\ damage);\n\ \ \ \ \n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)\ getWorld();\n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ world.updateLifeCounter(hp);\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (hp\ \=\=\ 0)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die();\n\ \ \ \ \ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \n\ \ \ \ \ \ \ \ ///damageCooldown\ \=\ DAMAGE_COOLDOWN_TIME;\ //\ start\ cooldown\n}
-numComments=12
+comment8.target=void\ checkCollision()
+comment9.params=
+comment9.target=void\ checkMiniFruitCollision()
+numComments=13

@@ -14,7 +14,7 @@ public class Pineapple extends PlayerFruit
      */
     public Pineapple(String imagePath)
     {
-        super(imagePath, 70, 100); // direction, imagePath, hp
+        super(imagePath, "Italian pizza",  70, 100); // direction, imagePath, hp
     }
     
     public void act()
