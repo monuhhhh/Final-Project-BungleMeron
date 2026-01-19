@@ -32,6 +32,10 @@ public class MyWorld extends World
         showGrid(); 
     }
     
+    public void act(){
+        spawnDroplets();
+    }
+    
     private void initializeGrid() {
         grid = new int[gridHeight][gridWidth];
     }
@@ -167,27 +171,28 @@ public class MyWorld extends World
         addObject(boss, 100, 160); 
     }
     
-    private void spawnDroplets(){
+    private void spawnDroplets() {//monika
         dropletTimer++;
-     
-        // Faster spawning at higher levels
-        int spawnDelay = Math.max(180 - currentLevel * 30, 60);
     
-        if (dropletTimer >= spawnDelay)
-        {
+        int spawnDelay = Math.max(220 - currentLevel * 30, 80);
+        
+        if (dropletTimer >= spawnDelay) {
             dropletTimer = 0;
+     
+            int dropletsThisSpawn = currentLevel; // 1–5 droplets
     
-            // random x aligned to grid
-            int col = Greenfoot.getRandomNumber(gridWidth);
-            int x = col * cellSize + cellSize / 2;
-            int y = 0;
+            for (int i = 0; i < dropletsThisSpawn; i++) {
+                int col = Greenfoot.getRandomNumber(gridWidth);
+                int x = col * cellSize + cellSize / 2;
+                int y = 0;
     
-            // random fall delay so they don't all drop at once
-            int fallDelay = Greenfoot.getRandomNumber(60);
-    
-            addObject(new Droplets(fallDelay), x, y);
+                int fallDelay = Greenfoot.getRandomNumber(60);
+                addObject(new Droplets(fallDelay), x, y);
+            }
         }
     }
+    
+    
     
     
     

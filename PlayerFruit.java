@@ -43,26 +43,32 @@ public abstract class PlayerFruit extends Fruits
     }
     
     public void act() {
-        
-        
-        if (!(getWorld() instanceof MyWorld)) {
-            return; // Don't do anything in CustomizeWorld
-        }
+        if (!(getWorld() instanceof MyWorld)) return; // Don't do anything in CustomizeWorld
         if (frozen) return;
-        if (damageCooldown > 0) {
-            damageCooldown--;
-        }
+        if (damageCooldown > 0) damageCooldown--;
+
         handleMovement();
-        if (!onLadder) {
-            applyGravity();
-        }
+        if (!onLadder) applyGravity();
         
-        checkMiniFruitCollision();
-        checkCollision();
-        checkGoal(); 
-        
-        //gainPower();
+        checkDropletCollision();    // Fixed droplet collisions
+        checkMiniFruitCollision();  // Handles projectiles hitting player
+        checkCollision();           // Handles other collisions (if needed)
+        checkGoal();                // Check for level progression
     } 
+    
+    public void changeHP(int amount) {
+        hp += amount;
+        if (hp < 0) hp = 0;
+    
+        MyWorld world = (MyWorld)getWorld();
+        if (world != null) {
+            world.updateLifeCounter(hp);
+        }
+    
+        if (hp <= 0) {
+            world.lose();
+        }
+    }
     
     /**
     public void gainPower(int currentLevel) {//monika
@@ -118,28 +124,19 @@ public abstract class PlayerFruit extends Fruits
         yVelocity += 1;
     
         // Cap fall speed
-        if (yVelocity > 15) {
-            yVelocity = 15;
-        }
+        if (yVelocity > 15) yVelocity = 15;
     
         int nextY = getY() + yVelocity;
-        
-        // Calculate foot position
-        int footY = nextY + getImage().getHeight()/2;
+        int footY = nextY + getImage().getHeight() / 2;
     
         // Check landing (only when falling)
-        if (yVelocity > 0 &&
-            world.getGridValue(getX(), footY) == 1) {
-    
-            // Snap player to top of platform
+        if (yVelocity > 0 && world.getGridValue(getX(), footY) == 1) {
             int platformRow = footY / cellSize;
             int snapY = platformRow * cellSize - cellSize / 2;
-    
             setLocation(getX(), snapY);
             yVelocity = 0;
             onGround = true;
         } else {
-            // In air
             setLocation(getX(), nextY);
             onGround = false;
         }
@@ -152,34 +149,51 @@ public abstract class PlayerFruit extends Fruits
         int gridValue = world.getGridValue(getX(), getY());
 
         if (gridValue == 5) {
-            world = (MyWorld) getWorld();
+            //######world = (MyWorld) getWorld();
             world.nextLevel();
         }
     }
     
-    private void checkCollision() {//monika - used code from gr 11 project as base 
-        if (isTouching(Droplets.class)) {
-            Droplets droplet = (Droplets) getOneIntersectingObject(Droplets.class);
-        
-            if (droplet != null) {
-                int playerBottom = getY() + getImage().getHeight() / 2;
-                int dropletTop  = droplet.getY() - droplet.getImage().getHeight() / 2;
-        
-                if (playerBottom <= dropletTop + 5) {
-                    // Player jumped on top
-                    heal(1); 
-                } else {
-                    // Side or bottom hit
-                    damageMe(1);
-                }
-        
-                getWorld().removeObject(droplet);
-            }
-        }
-        
-        //minifruit collision in handles all in the minifruit 
+    
+    
+    private void checkCollision() {
     }
     
+    private void checkDropletCollision() {
+        Droplets hit = null;
+    
+        // Look for any droplets in the world
+        for (Droplets d : getWorld().getObjects(Droplets.class)) {
+            double dx = d.getX() - getX();
+            double dy = d.getY() - getY();
+            double distance = Math.sqrt(dx * dx + dy * dy);
+    
+            if (distance < 30) { // tweak radius if needed
+                hit = d;
+                break;
+            }
+        }
+    
+        if (hit != null) {
+            int playerBottom = getY() + getImage().getHeight() / 2;
+            int dropletTop  = hit.getY() - hit.getImage().getHeight() / 2;
+    
+            if (playerBottom <= dropletTop + 5) {
+                // Player jumped on top of droplet
+                changeHP(10);
+            } else {
+                // Player hit droplet from side/bottom
+                changeHP(-15);
+            }
+    
+            getWorld().removeObject(hit);
+        }
+    }
+
+
+    
+   
+   
     private void checkMiniFruitCollision(){//monika
         MiniFruit hit = null;
     
