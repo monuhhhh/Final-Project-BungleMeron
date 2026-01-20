@@ -18,7 +18,7 @@ public class MiniFruit extends Actor
         damage = bossStrength;
 
         GreenfootImage img = new GreenfootImage("minifruit.png");
-        img.scale(img.getWidth() / 30, img.getHeight() / 30);
+        img.scale(img.getWidth() / 50, img.getHeight() / 50);
         setImage(img);
     }
     

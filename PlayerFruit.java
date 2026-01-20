@@ -13,7 +13,7 @@ public abstract class PlayerFruit extends Fruits
     //movement variables
     public int yVelocity = 0;
     protected boolean onGround = false;
-    protected int jumpStrength = 8;
+    protected int jumpStrength = 10;
     public boolean onLadder = false; 
     
     
