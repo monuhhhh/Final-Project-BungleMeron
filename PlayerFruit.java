@@ -52,7 +52,7 @@ public abstract class PlayerFruit extends Fruits
         
         checkDropletCollision();    // Fixed droplet collisions
         checkMiniFruitCollision();  // Handles projectiles hitting player
-        checkCollision();           // Handles other collisions (if needed)
+        //checkCollision();           // Handles other collisions (if needed)
         checkGoal();                // Check for level progression
     } 
     
@@ -70,13 +70,7 @@ public abstract class PlayerFruit extends Fruits
         }
     }
     
-    /**
-    public void gainPower(int currentLevel) {//monika
-        if (MyWorld.currentLevel = 5){
-            
-        }
-    }
-    */
+    
     
     
     //handles left/right movement and jumping
@@ -156,10 +150,7 @@ public abstract class PlayerFruit extends Fruits
     
     
     
-    private void checkCollision() {
-    }
-    
-    private void checkDropletCollision() {
+    private void checkDropletCollision() {//monika
         Droplets hit = null;
     
         // Look for any droplets in the world
@@ -219,26 +210,10 @@ public abstract class PlayerFruit extends Fruits
 
     
     
-    /**
+        
     public void damageMe(int damage) {//monika
-        //if (damageCooldown > 0) return; // ignore if cooldown active
-    
-        hp = Math.max(0, hp - damage);
-    
-        MyWorld world = (MyWorld) getWorld();
-        if (world != null) {
-            world.updateLifeCounter(hp);
-            if (hp == 0) {
-                die();
-            }
-        }
-    
-        ///damageCooldown = DAMAGE_COOLDOWN_TIME; // start cooldown
-    }*/
-    
-    public void damageMe(int damage) {
         // Apply damage
-        hp = Math.max(0, hp - damage);
+        hp = Math.max(0, hp - damage); 
     
         // Update UI
         MyWorld world = (MyWorld)getWorld();
@@ -251,18 +226,12 @@ public abstract class PlayerFruit extends Fruits
         }
     }
 
-    /**
-    public void heal(int amount) {//monika
-        hp = Math.min(hp + amount, maxHp); // caps at maxHp
-        MyWorld world = (MyWorld)getWorld(); 
-        if (world != null) world.updateLifeCounter(hp); // update UI
-    } 
-    */
+    
    
     // Optional heal method
-    public void heal(int amount) {
+    public void heal(int amount) {//monika
         hp = Math.min(hp + amount, maxHp);
-        MyWorld world = (MyWorld)getWorld();
+        MyWorld world = (MyWorld)getWorld(); 
         if (world != null) {
             world.updateLifeCounter(hp);
         }
