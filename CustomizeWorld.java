@@ -90,7 +90,8 @@ public class CustomizeWorld extends World
         showText("", 420, 220);
         showText("", 420, 255);
     
-        showText(" HP: " + (int)f.hp, 420, 160);
+        showText(f.getName(), 420, 190);
+        showText(" HP: " + (int)f.hp, 420, 220);
     }
     
     public void nextFruit(){
