@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
  * AnnoyingApple represents the Apple variant of the Annoying fruit player.
@@ -10,11 +10,13 @@ public class Apple extends PlayerFruit
 {
     public Apple(String imagePath)
     {
-        super(1, imagePath, 100); // direction, imagePath, hp
+        super(imagePath, 70, 100); // imagePath, starting HP, max HP
     }
     
     public void act()
     {
-        super.act(); // Call the parent's act method
+        super.act();
     }
 }
+
+

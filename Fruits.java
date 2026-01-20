@@ -54,8 +54,9 @@ public abstract class Fruits extends SuperSmoothMover
     }
 
     //subclasses can then customize these variables for the unique identity of each fruit 
-    protected void initStats(int hp){
+    protected void initStats(int hp, int maxHP){
         this.hp = hp;
+        this.maxHP = maxHP; 
     }
     
     /**
@@ -97,8 +98,13 @@ public abstract class Fruits extends SuperSmoothMover
     public void takeDamage(double dmg) {
         hp -= dmg;
         if (hp <= 0) {
-            isKnockedDown();
+            hp = 0;
+            die();
         }
+    }
+    
+    protected void die() {
+        removeFromWorld();
     }
     
     //Triggers the knockdown state

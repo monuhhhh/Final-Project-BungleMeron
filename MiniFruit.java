@@ -21,9 +21,14 @@ public class MiniFruit extends Actor
         img.scale(img.getWidth() / 30, img.getHeight() / 30);
         setImage(img);
     }
+    
+    public int getDamage() {
+        return damage;
+    }
 
-    public void act()
-    {
+    public void act(){
+        //if (isTouching(MiniFruit.class)) return;
+    
         if (stage >= ladderX.length)
         {
             moveTowardPlayer();
@@ -36,10 +41,10 @@ public class MiniFruit extends Actor
         {
             moveTowardLadder();
         }
-
-        checkPlayerHit();
+    
+        //checkPlayerHit();
     }
-
+    
     /* ---------------- PATH FOLLOWING ---------------- */
 
     private void moveTowardLadder()
@@ -49,7 +54,7 @@ public class MiniFruit extends Actor
         if (Math.abs(getX() - targetX) <= speed)
         {
             setLocation(targetX, getY());
-            climbing = true;
+            climbing = true; 
         }
         else if (getX() < targetX)
         {
@@ -74,6 +79,9 @@ public class MiniFruit extends Actor
 
     private void moveTowardPlayer()
     {
+            if (getWorld().getObjects(PlayerFruit.class).isEmpty()) return;
+
+            
         PlayerFruit player = (PlayerFruit)getWorld()
                 .getObjects(PlayerFruit.class)
                 .get(0);
@@ -84,16 +92,19 @@ public class MiniFruit extends Actor
             setLocation(getX() - speed, getY());
     }
 
-    /* ---------------- DAMAGE ---------------- */
-
-    private void checkPlayerHit()
-    {
+    /**
+    
+    private void checkPlayerHit(){
         PlayerFruit player = (PlayerFruit)getOneIntersectingObject(PlayerFruit.class);
-
+    
         if (player != null)
         {
-            player.takeDamage(damage);
+            player.damageMe(10);   // exact damage
             getWorld().removeObject(this);
         }
-    }
+    }*/
+    
+ 
 }
+   
+

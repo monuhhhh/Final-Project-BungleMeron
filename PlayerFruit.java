@@ -1,12 +1,13 @@
 import greenfoot.*;
 
+//adding a comment so it will accept my commit 
 /**
  * AnnoyingFruit is the player-controlled fruit.
  * The player selects which annoying fruit to play as.
  * 
- * @author Monika and Carmen 
+ * @author  Carmen and monika
  * @version 24 Nov, 2025
- */
+ */  
 public abstract class PlayerFruit extends Fruits
 {
     //movement variables
@@ -15,32 +16,72 @@ public abstract class PlayerFruit extends Fruits
     protected int jumpStrength = 8;
     public boolean onLadder = false; 
     
+    
+    protected int damageCooldown = 0;
+    protected final int DAMAGE_COOLDOWN_TIME = 30;
+    
+    protected int hp;
+    protected int maxHp = 100;
+    
     //constructor for PlayerFruit (player)
-    public PlayerFruit(
-        int direction,
-        String imagePath,
-        int hp)
-    {
-        super(direction);
+    public PlayerFruit(String imagePath, int initialHp, int maxHP) {
+        super(1); // default direction, not important anymore
         setImage(imagePath);
-        initStats(hp); // reactionTime not used for player
+    
+        this.maxHp = maxHP;
+        this.hp = initialHp;
+    }
+    
+    
+    
+    @Override
+    protected void die() {
+        MyWorld world = (MyWorld) getWorld();
+        if (world != null) {
+            world.lose();
+        }
     }
     
     public void act() {
-        if (!(getWorld() instanceof MyWorld)) {
-            return; // Don't do anything in CustomizeWorld
-        }
+        if (!(getWorld() instanceof MyWorld)) return; // Don't do anything in CustomizeWorld
         if (frozen) return;
+        if (damageCooldown > 0) damageCooldown--;
+
         handleMovement();
-        if (!onLadder) {
-            applyGravity();
-        }
-        checkGoal();
+        if (!onLadder) applyGravity();
+        
+        checkDropletCollision();    // Fixed droplet collisions
+        checkMiniFruitCollision();  // Handles projectiles hitting player
+        checkCollision();           // Handles other collisions (if needed)
+        checkGoal();                // Check for level progression
     } 
     
+    public void changeHP(int amount) {
+        hp += amount;
+        if (hp < 0) hp = 0;
+    
+        MyWorld world = (MyWorld)getWorld();
+        if (world != null) {
+            world.updateLifeCounter(hp);
+        }
+    
+        if (hp <= 0) {
+            world.lose();
+        }
+    }
+    
+    /**
+    public void gainPower(int currentLevel) {//monika
+        if (MyWorld.currentLevel = 5){
+            
+        }
+    }
+    */
+    
+    
     //handles left/right movement and jumping
-    protected void handleMovement() {
-        MyWorld world = (MyWorld) getWorld();
+    protected void handleMovement() {//monika
+        MyWorld world = (MyWorld) getWorld(); 
         
         //Horizontal movement
         if (Greenfoot.isKeyDown("left")) {
@@ -75,36 +116,27 @@ public abstract class PlayerFruit extends Fruits
     
     
     //applies gravity and landing logic
-    protected void applyGravity() {
+    protected void applyGravity() {//monika
         MyWorld world = (MyWorld) getWorld();
         int cellSize = world.getCellSize();
     
-        // Apply gravity
+        // Apply gravity 
         yVelocity += 1;
     
         // Cap fall speed
-        if (yVelocity > 15) {
-            yVelocity = 15;
-        }
+        if (yVelocity > 15) yVelocity = 15;
     
         int nextY = getY() + yVelocity;
-        
-        // Calculate foot position
-        int footY = nextY + getImage().getHeight()/2;
+        int footY = nextY + getImage().getHeight() / 2;
     
         // Check landing (only when falling)
-        if (yVelocity > 0 &&
-            world.getGridValue(getX(), footY) == 1) {
-    
-            // Snap player to top of platform
+        if (yVelocity > 0 && world.getGridValue(getX(), footY) == 1) {
             int platformRow = footY / cellSize;
             int snapY = platformRow * cellSize - cellSize / 2;
-    
             setLocation(getX(), snapY);
             yVelocity = 0;
             onGround = true;
         } else {
-            // In air
             setLocation(getX(), nextY);
             onGround = false;
         }
@@ -117,9 +149,125 @@ public abstract class PlayerFruit extends Fruits
         int gridValue = world.getGridValue(getX(), getY());
 
         if (gridValue == 5) {
-            Greenfoot.setWorld(new TitleWorld()); // or NextWorld()
+            //######world = (MyWorld) getWorld();
+            world.nextLevel();
         }
     }
+    
+    
+    
+    private void checkCollision() {
+    }
+    
+    private void checkDropletCollision() {
+        Droplets hit = null;
+    
+        // Look for any droplets in the world
+        for (Droplets d : getWorld().getObjects(Droplets.class)) {
+            double dx = d.getX() - getX();
+            double dy = d.getY() - getY();
+            double distance = Math.sqrt(dx * dx + dy * dy);
+    
+            if (distance < 30) { // tweak radius if needed
+                hit = d;
+                break;
+            }
+        }
+    
+        if (hit != null) {
+            int playerBottom = getY() + getImage().getHeight() / 2;
+            int dropletTop  = hit.getY() - hit.getImage().getHeight() / 2;
+    
+            if (playerBottom <= dropletTop + 5) {
+                // Player jumped on top of droplet
+                changeHP(10);
+            } else {
+                // Player hit droplet from side/bottom
+                changeHP(-15);
+            }
+    
+            getWorld().removeObject(hit);
+        }
+    }
+
+
+    
+   
+   
+    private void checkMiniFruitCollision(){//monika
+        MiniFruit hit = null;
+    
+        for (MiniFruit mf : getWorld().getObjects(MiniFruit.class))
+        {
+            double dx = mf.getX() - getX();
+            double dy = mf.getY() - getY();
+            double distance = Math.sqrt(dx * dx + dy * dy);
+    
+            if (distance < 30)  // collision radius (tweakable)
+            {
+                hit = mf;
+                break;
+            }
+        }
+    
+        if (hit != null)
+        {
+            damageMe(10);
+            getWorld().removeObject(hit);
+        }
+    }
+
+    
+    
+    /**
+    public void damageMe(int damage) {//monika
+        //if (damageCooldown > 0) return; // ignore if cooldown active
+    
+        hp = Math.max(0, hp - damage);
+    
+        MyWorld world = (MyWorld) getWorld();
+        if (world != null) {
+            world.updateLifeCounter(hp);
+            if (hp == 0) {
+                die();
+            }
+        }
+    
+        ///damageCooldown = DAMAGE_COOLDOWN_TIME; // start cooldown
+    }*/
+    
+    public void damageMe(int damage) {
+        // Apply damage
+        hp = Math.max(0, hp - damage);
+    
+        // Update UI
+        MyWorld world = (MyWorld)getWorld();
+        if (world != null) {
+            world.updateLifeCounter(hp);
+            if (hp == 0) {
+                // Player died
+                die();
+            }
+        }
+    }
+
+    /**
+    public void heal(int amount) {//monika
+        hp = Math.min(hp + amount, maxHp); // caps at maxHp
+        MyWorld world = (MyWorld)getWorld(); 
+        if (world != null) world.updateLifeCounter(hp); // update UI
+    } 
+    */
+   
+    // Optional heal method
+    public void heal(int amount) {
+        hp = Math.min(hp + amount, maxHp);
+        MyWorld world = (MyWorld)getWorld();
+        if (world != null) {
+            world.updateLifeCounter(hp);
+        }
+    }
+    
     
     //edge detection 
     protected void checkEdge() {

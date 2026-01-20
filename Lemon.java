@@ -14,7 +14,7 @@ public class Lemon extends PlayerFruit
      */
     public Lemon(String imagePath)
     {
-        super(1, imagePath, 100); // direction, imagePath, hp
+        super(imagePath, 70, 100); // direction, imagePath, hp
     }
     
     public void act()

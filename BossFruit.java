@@ -10,7 +10,7 @@ import greenfoot.*;
 
 public class BossFruit extends Actor
 {
-    // Boss stats
+    // Boss stat
     private int hp = 200;
     private int strength = 10;
 
