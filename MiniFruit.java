@@ -45,7 +45,7 @@ public class MiniFruit extends Actor
         //checkPlayerHit();
     }
     
-    /* ---------------- PATH FOLLOWING ---------------- */
+    /* ---------------- FOLLOWING THE PATH ---------------- */
 
     private void moveTowardLadder()
     {
@@ -91,10 +91,8 @@ public class MiniFruit extends Actor
         else
             setLocation(getX() - speed, getY());
     }
-
-    /**
     
-        private void checkPlayerHit(){
+     private void checkPlayerHit(){
             PlayerFruit player = (PlayerFruit)getOneIntersectingObject(PlayerFruit.class);
     
             if (player != null)
@@ -102,8 +100,7 @@ public class MiniFruit extends Actor
                 player.damageMe(10);   // exact damage
                 getWorld().removeObject(this);
             }
-        }*/
-    
+    }
 }
    
 
