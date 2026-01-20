@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=PlayerFruit
-comment0.text=\r\n\ AnnoyingFruit\ is\ the\ player-controlled\ fruit.\r\n\ The\ player\ selects\ which\ annoying\ fruit\ to\ play\ as.\r\n\ \r\n\ @author\ \ Carmen\ and\ monika\r\n\ @version\ 24\ Nov,\ 2025\r\n
+comment0.text=\n\ AnnoyingFruit\ is\ the\ player-controlled\ fruit.\n\ The\ player\ selects\ which\ annoying\ fruit\ to\ play\ as.\n\ \n\ @author\ \ Carmen\ and\ monika\n\ @version\ 24\ Nov,\ 2025\n
 comment1.params=imagePath\ initialHp\ maxHP
 comment1.target=PlayerFruit(java.lang.String,\ int,\ int)
 comment10.params=
 comment10.target=void\ checkMiniFruitCollision()
 comment11.params=damage
 comment11.target=void\ damageMe(int)
-comment11.text=\r\n\ \ \ \ public\ void\ damageMe(int\ damage)\ {//monika\r\n\ \ \ \ \ \ \ \ //if\ (damageCooldown\ >\ 0)\ return;\ //\ ignore\ if\ cooldown\ active\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ hp\ \=\ Math.max(0,\ hp\ -\ damage);\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)\ getWorld();\r\n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ world.updateLifeCounter(hp);\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (hp\ \=\=\ 0)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die();\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ ///damageCooldown\ \=\ DAMAGE_COOLDOWN_TIME;\ //\ start\ cooldown\r\n}
+comment11.text=\n\ \ \ \ public\ void\ damageMe(int\ damage)\ {//monika\n\ \ \ \ \ \ \ \ //if\ (damageCooldown\ >\ 0)\ return;\ //\ ignore\ if\ cooldown\ active\n\ \ \ \ \n\ \ \ \ \ \ \ \ hp\ \=\ Math.max(0,\ hp\ -\ damage);\n\ \ \ \ \n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)\ getWorld();\n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ world.updateLifeCounter(hp);\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (hp\ \=\=\ 0)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die();\n\ \ \ \ \ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \n\ \ \ \ \ \ \ \ ///damageCooldown\ \=\ DAMAGE_COOLDOWN_TIME;\ //\ start\ cooldown\n}
 comment12.params=amount
 comment12.target=void\ heal(int)
-comment12.text=\r\n\ \ \ \ public\ void\ heal(int\ amount)\ {//monika\r\n\ \ \ \ \ \ \ \ hp\ \=\ Math.min(hp\ +\ amount,\ maxHp);\ //\ caps\ at\ maxHp\r\n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)getWorld();\ \r\n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ world.updateLifeCounter(hp);\ //\ update\ UI\r\n\ \ \ \ }\ \r\n
+comment12.text=\n\ \ \ \ public\ void\ heal(int\ amount)\ {//monika\n\ \ \ \ \ \ \ \ hp\ \=\ Math.min(hp\ +\ amount,\ maxHp);\ //\ caps\ at\ maxHp\n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)getWorld();\ \n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ world.updateLifeCounter(hp);\ //\ update\ UI\n\ \ \ \ }\ \n
 comment13.params=
 comment13.target=void\ checkEdge()
 comment2.params=
@@ -21,7 +21,7 @@ comment4.params=amount
 comment4.target=void\ changeHP(int)
 comment5.params=
 comment5.target=void\ handleMovement()
-comment5.text=\r\n\ \ \ \ public\ void\ gainPower(int\ currentLevel)\ {//monika\r\n\ \ \ \ \ \ \ \ if\ (MyWorld.currentLevel\ \=\ 5){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n
+comment5.text=\n\ \ \ \ public\ void\ gainPower(int\ currentLevel)\ {//monika\n\ \ \ \ \ \ \ \ if\ (MyWorld.currentLevel\ \=\ 5){\n\ \ \ \ \ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ }\n\ \ \ \ }\n
 comment6.params=
 comment6.target=void\ applyGravity()
 comment7.params=
