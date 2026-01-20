@@ -113,7 +113,6 @@ public abstract class PlayerFruit extends Fruits
         }
     }
     
-    
     //applies gravity and landing logic
     protected void applyGravity() {//monika
         MyWorld world = (MyWorld) getWorld();
