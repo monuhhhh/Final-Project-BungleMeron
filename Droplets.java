@@ -15,7 +15,7 @@ public class Droplets extends SuperSmoothMover
         this.fallTime = fallTime;
 
         GreenfootImage img = new GreenfootImage(IMAGE_PATH);
-        img.scale(img.getWidth() / 6, img.getHeight() / 6); // make small
+        img.scale(img.getWidth() / 8, img.getHeight() / 8); // make small
         setImage(img);
     }
      
