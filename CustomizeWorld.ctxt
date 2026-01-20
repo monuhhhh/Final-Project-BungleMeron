@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=CustomizeWorld
-comment0.text=\r\n\ CustomizeWorld\ allows\ players\ to\ select\ their\ fruit\ characters\ before\ the\ simulation\ starts.\r\n\ Each\ fruit\ has\ unique\ stats\ that\ affect\ the\ ending\ result\ of\ the\ game\ depends\ on\ which\ fruit\ player\ picks.\r\n\ \r\n\ @author\ Carmen\ Cheung\r\n\ @version\ 13\ Jan,\ 2026\r\n
+comment0.text=\n\ CustomizeWorld\ allows\ players\ to\ select\ their\ fruit\ characters\ before\ the\ simulation\ starts.\n\ Each\ fruit\ has\ unique\ stats\ that\ affect\ the\ ending\ result\ of\ the\ game\ depends\ on\ which\ fruit\ player\ picks.\n\ \n\ @author\ Carmen\ Cheung\n\ @version\ 13\ Jan,\ 2026\n
 comment1.params=
 comment1.target=CustomizeWorld()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ CustomizeWorld.\r\n\ \r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ CustomizeWorld.\n\ \n
 comment2.params=
 comment2.target=void\ showCurrentFruit()
 comment3.params=name

@@ -1,33 +1,37 @@
 #BlueJ class context
 comment0.target=PlayerFruit
-comment0.text=\r\n\ AnnoyingFruit\ is\ the\ player-controlled\ fruit.\r\n\ The\ player\ selects\ which\ annoying\ fruit\ to\ play\ as.\r\n\ \r\n\ @author\ \ Carmen\ and\ monika\r\n\ @version\ 24\ Nov,\ 2025\r\n
-comment1.params=imagePath\ initialHp\ maxHP
-comment1.target=PlayerFruit(java.lang.String,\ int,\ int)
+comment0.text=\n\ AnnoyingFruit\ is\ the\ player-controlled\ fruit.\n\ The\ player\ selects\ which\ annoying\ fruit\ to\ play\ as.\n\ \n\ @author\ \ Carmen\ and\ monika\n\ @version\ 24\ Nov,\ 2025\n
+comment1.params=imagePath\ name\ initialHp\ maxHP
+comment1.target=PlayerFruit(java.lang.String,\ java.lang.String,\ int,\ int)
 comment10.params=
-comment10.target=void\ checkMiniFruitCollision()
-comment11.params=damage
-comment11.target=void\ damageMe(int)
-comment11.text=\r\n\ \ \ \ public\ void\ damageMe(int\ damage)\ {//monika\r\n\ \ \ \ \ \ \ \ //if\ (damageCooldown\ >\ 0)\ return;\ //\ ignore\ if\ cooldown\ active\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ hp\ \=\ Math.max(0,\ hp\ -\ damage);\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)\ getWorld();\r\n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ world.updateLifeCounter(hp);\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (hp\ \=\=\ 0)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die();\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ \ \ \ \ ///damageCooldown\ \=\ DAMAGE_COOLDOWN_TIME;\ //\ start\ cooldown\r\n}
-comment12.params=amount
-comment12.target=void\ heal(int)
-comment12.text=\r\n\ \ \ \ public\ void\ heal(int\ amount)\ {//monika\r\n\ \ \ \ \ \ \ \ hp\ \=\ Math.min(hp\ +\ amount,\ maxHp);\ //\ caps\ at\ maxHp\r\n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)getWorld();\ \r\n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ world.updateLifeCounter(hp);\ //\ update\ UI\r\n\ \ \ \ }\ \r\n
-comment13.params=
-comment13.target=void\ checkEdge()
+comment10.target=void\ checkCollision()
+comment11.params=
+comment11.target=void\ checkDropletCollision()
+comment12.params=
+comment12.target=void\ checkMiniFruitCollision()
+comment13.params=damage
+comment13.target=void\ damageMe(int)
+comment13.text=\n\ \ \ \ public\ void\ damageMe(int\ damage)\ {//monika\n\ \ \ \ \ \ \ \ //if\ (damageCooldown\ >\ 0)\ return;\ //\ ignore\ if\ cooldown\ active\n\ \ \ \ \n\ \ \ \ \ \ \ \ hp\ \=\ Math.max(0,\ hp\ -\ damage);\n\ \ \ \ \n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)\ getWorld();\n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ world.updateLifeCounter(hp);\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (hp\ \=\=\ 0)\ {\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ die();\n\ \ \ \ \ \ \ \ \ \ \ \ }\n\ \ \ \ \ \ \ \ }\n\ \ \ \ \n\ \ \ \ \ \ \ \ ///damageCooldown\ \=\ DAMAGE_COOLDOWN_TIME;\ //\ start\ cooldown\n}
+comment14.params=amount
+comment14.target=void\ heal(int)
+comment14.text=\n\ \ \ \ public\ void\ heal(int\ amount)\ {//monika\n\ \ \ \ \ \ \ \ hp\ \=\ Math.min(hp\ +\ amount,\ maxHp);\ //\ caps\ at\ maxHp\n\ \ \ \ \ \ \ \ MyWorld\ world\ \=\ (MyWorld)getWorld();\ \n\ \ \ \ \ \ \ \ if\ (world\ \!\=\ null)\ world.updateLifeCounter(hp);\ //\ update\ UI\n\ \ \ \ }\ \n
+comment15.params=
+comment15.target=void\ checkEdge()
 comment2.params=
-comment2.target=void\ die()
+comment2.target=java.lang.String\ getName()
 comment3.params=
-comment3.target=void\ act()
-comment4.params=amount
-comment4.target=void\ changeHP(int)
-comment5.params=
-comment5.target=void\ handleMovement()
-comment5.text=\r\n\ \ \ \ public\ void\ gainPower(int\ currentLevel)\ {//monika\r\n\ \ \ \ \ \ \ \ if\ (MyWorld.currentLevel\ \=\ 5){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ }\r\n
+comment3.target=void\ die()
+comment4.params=
+comment4.target=void\ act()
+comment5.params=amount
+comment5.target=void\ changeHP(int)
 comment6.params=
-comment6.target=void\ applyGravity()
+comment6.target=void\ handleMovement()
+comment6.text=\n\ \ \ \ public\ void\ gainPower(int\ currentLevel)\ {//monika\n\ \ \ \ \ \ \ \ if\ (MyWorld.currentLevel\ \=\ 5){\n\ \ \ \ \ \ \ \ \ \ \ \ \n\ \ \ \ \ \ \ \ }\n\ \ \ \ }\n
 comment7.params=
-comment7.target=void\ checkGoal()
+comment7.target=void\ applyGravity()
 comment8.params=
-comment8.target=void\ checkCollision()
+comment8.target=void\ checkGoal()
 comment9.params=
-comment9.target=void\ checkDropletCollision()
-numComments=14
+comment9.target=void\ checkButton()
+numComments=16
