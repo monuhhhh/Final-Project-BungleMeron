@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=EndWorld
-comment0.text=\r\n\ EndWorld\ displays\ the\ final\ game\ results\ after\ the\ player\ lose\ the\ games.\ \r\n\ It\ shows\ the\ player's\ final\ HP,\ the\ level\ reached,\ and\ allows\ the\ player\ to\ restart\ the\ game.\r\n\ \r\n\ @author\ Carmen\ Cheung\r\n\ @version\ Jan\ 16,\ 2026\r\n
+comment0.text=\n\ EndWorld\ displays\ the\ final\ game\ results\ after\ the\ player\ lose\ the\ games.\ \n\ It\ shows\ the\ player's\ final\ HP,\ the\ level\ reached,\ and\ allows\ the\ player\ to\ restart\ the\ game.\n\ \n\ @author\ Carmen\ Cheung\n\ @version\ Jan\ 16,\ 2026\n
 comment1.params=hp\ level
 comment1.target=EndWorld(int,\ int)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ EndWorld.\r\n\ \r\n\ @param\ hp\ the\ player's\ final\ health\ points\r\n\ @param\ level\ the\ highest\ level\ the\ player\ reached\r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ EndWorld.\n\ \n\ @param\ hp\ the\ player's\ final\ health\ points\n\ @param\ level\ the\ highest\ level\ the\ player\ reached\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ If\ the\ player\ presses\ the\ 'r'\ key,\ saved\ data\ is\ reset\ and\ the\ game\ restart.\r\n
+comment2.text=\n\ If\ the\ player\ presses\ the\ 'r'\ key,\ saved\ data\ is\ reset\ and\ the\ game\ restart.\n
 numComments=3

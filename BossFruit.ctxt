@@ -1,22 +1,22 @@
 #BlueJ class context
 comment0.target=BossFruit
-comment0.text=\r\n\ This\ boss\ fruit\ is\ inspired\ by\ Donkey\ Kong,\ but\ it's\ an\ AI\ Watermelon\ It's\ purpose\ is\ to\ spawn,\ \r\n\ then\ it\ shoots\ balls\ out\ of\ itself\ onto\ the\ platforms\ and\ down\ the\ platforms\ as\ obstacles\ for\ the\ player.\ \r\n\ \r\n\ @author\ (Kalkie)\ \r\n\ @version\ (Jan\ 2025)\r\n
+comment0.text=\n\ This\ boss\ fruit\ is\ inspired\ by\ Donkey\ Kong,\ but\ it's\ an\ AI\ Watermelon\ It's\ purpose\ is\ to\ spawn,\ \n\ then\ it\ shoots\ balls\ out\ of\ itself\ onto\ the\ platforms\ and\ down\ the\ platforms\ as\ obstacles\ for\ the\ player.\ \n\ \n\ @author\ (Kalkie)\ \n\ @version\ (Jan\ 2025)\n
 comment1.params=
 comment1.target=BossFruit()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ fadeInEffect()
-comment3.text=\r\n\ Slowly\ fades\ the\ boss\ in\ when\ the\ level\ starts\r\n
+comment3.text=\n\ Slowly\ fades\ the\ boss\ in\ when\ the\ level\ starts\n
 comment4.params=
 comment4.target=void\ shakeInPlace()
-comment4.text=\r\n\ Small\ shaking\ animation\ to\ feel\ "alive"\r\n
+comment4.text=\n\ Small\ shaking\ animation\ to\ feel\ "alive"\n
 comment5.params=
 comment5.target=void\ throwMiniFruit()
-comment5.text=\r\n\ Throws\ mini\ fruits\ occasionally\r\n
+comment5.text=\n\ Throws\ mini\ fruits\ occasionally\n
 comment6.params=damage
 comment6.target=void\ takeDamage(int)
-comment6.text=\r\n\ Boss\ takes\ damage\r\n
+comment6.text=\n\ Boss\ takes\ damage\n
 comment7.params=
 comment7.target=void\ startFalling()
 comment8.params=
