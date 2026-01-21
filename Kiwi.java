@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * option of having kiwi as the player
+ * Kiwi represents the AnnoyingKiwi variant of the Annoying fruit player. 
  * 
- * @author (Monika) 
+ * @author Monika
  * @version 15 Jan 2026
  */
 public class Kiwi extends PlayerFruit

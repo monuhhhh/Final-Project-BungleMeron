@@ -3,7 +3,8 @@ import java.util.List;
 
 /**
  * Fruits is a superclass for all fruit characters in the game.
- * It defines stats and core behaviours shared by all fruits.
+ * It defines stats and core behaviours shared by all fruits, as well as 
+ * some additional methods and variables that can be easily implementted if needed. 
  * 
  * @author Monika Kouyoumdjian
  * @version 24 Nov, 2025 and jan 16 2026

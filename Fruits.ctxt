@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Fruits
-comment0.text=\r\n\ Fruits\ is\ a\ superclass\ for\ all\ fruit\ characters\ in\ the\ game.\r\n\ It\ defines\ stats\ and\ core\ behaviours\ shared\ by\ all\ fruits.\r\n\ \r\n\ @author\ Monika\ Kouyoumdjian\r\n\ @version\ 24\ Nov,\ 2025\ and\ jan\ 16\ 2026\r\n
+comment0.text=\r\n\ Fruits\ is\ a\ superclass\ for\ all\ fruit\ characters\ in\ the\ game.\r\n\ It\ defines\ stats\ and\ core\ behaviours\ shared\ by\ all\ fruits,\ as\ well\ as\ \r\n\ some\ additional\ methods\ and\ variables\ that\ can\ be\ easily\ implementted\ if\ needed.\ \r\n\ \r\n\ @author\ Monika\ Kouyoumdjian\r\n\ @version\ 24\ Nov,\ 2025\ and\ jan\ 16\ 2026\r\n
 comment1.params=rate
 comment1.target=void\ setSpawnRate(int)
 comment10.params=

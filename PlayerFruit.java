@@ -1,12 +1,11 @@
 import greenfoot.*;
 
-//adding a comment so it will accept my commit 
 /**
- * AnnoyingFruit is the player-controlled fruit.
- * The player selects which annoying fruit to play as.
+ * Selected fruit from player is the main player. This class handles collision detection, hp, 
+ * user input, as well as the players movement. 
  * 
  * @author  Monika Kouyoumdjian
- * @version 24 Nov, 2025
+ * @version Jan 14 2026
  */  
 public abstract class PlayerFruit extends Fruits
 {
@@ -34,15 +33,15 @@ public abstract class PlayerFruit extends Fruits
     
     
     
-    @Override
-    protected void die() {//monika
+    @Override//overridden from fruits 
+    protected void die() {//when player reached 0 hp then it calls die
         MyWorld world = (MyWorld) getWorld();
-        if (world != null) {
+        if (world != null) { 
             world.lose();
         }
     }
     
-    public void act() {// monika
+    public void act() {
         if (!(getWorld() instanceof MyWorld)) return;
         if (frozen) return;
     
@@ -68,7 +67,7 @@ public abstract class PlayerFruit extends Fruits
     }
 
     
-    public void changeHP(int amount) {//monika
+    public void changeHP(int amount) {
         hp += amount;
         if (hp < 0) hp = 0; 
     
@@ -79,6 +78,7 @@ public abstract class PlayerFruit extends Fruits
     
         if (hp <= 0) {
             world.lose();
+            //die();
         }
     }
     
@@ -155,7 +155,6 @@ public abstract class PlayerFruit extends Fruits
         int gridValue = world.getGridValue(getX(), getY());
 
         if (gridValue == 5) {
-            //######world = (MyWorld) getWorld();
             world.nextLevel();
         }
     }

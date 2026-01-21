@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=PlayerFruit
-comment0.text=\r\n\ AnnoyingFruit\ is\ the\ player-controlled\ fruit.\r\n\ The\ player\ selects\ which\ annoying\ fruit\ to\ play\ as.\r\n\ \r\n\ @author\ \ Monika\ Kouyoumdjian\r\n\ @version\ 24\ Nov,\ 2025\r\n
+comment0.text=\r\n\ Selected\ fruit\ from\ player\ is\ the\ main\ player.\ This\ class\ handles\ collision\ detection,\ hp,\ \r\n\ user\ input,\ as\ well\ as\ the\ players\ movement.\ \r\n\ \r\n\ @author\ \ Monika\ Kouyoumdjian\r\n\ @version\ Jan\ 14\ 2026\r\n
 comment1.params=imagePath\ initialHp\ maxHP
 comment1.target=PlayerFruit(java.lang.String,\ int,\ int)
 comment10.params=damage

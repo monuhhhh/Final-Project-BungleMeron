@@ -6,6 +6,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * help them out, or make them lose hp. If a player jumps dirrectly ontop of the droplet, they will gain 10HP, but if they make 
  * contact anywhere else, they will lose 15 hp
  * 
+ * 
+ * 
  * @author (monika) 
  * @version (Jan 16 2025)
  */

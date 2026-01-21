@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Lemon here.
+ * Lemon represents the AnnoyingLemon variant of the Annoying fruit player. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Monika
+ * @version 15 Jan 2026
  */
 public class Lemon extends PlayerFruit
 {

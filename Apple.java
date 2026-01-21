@@ -1,7 +1,7 @@
 import greenfoot.*;
 
 /**
- * AnnoyingApple represents the Apple variant of the Annoying fruit player.
+ * Apple represents the AnnoyingApple variant of the Annoying fruit player. 
  * 
  * @author Monika
  * @version 15 Jan 2026
