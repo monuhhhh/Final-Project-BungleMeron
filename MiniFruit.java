@@ -1,11 +1,18 @@
 import greenfoot.*;
+/**
+ * minifruit (mini watermelons) shoot out of the boss fruit and follow the
+ * pathways of the ladders as obstacles in the way of the player's path
+ * 
+ * @author (Kalkie) 
+ * @version (Jan 2025)
+ */
 
 public class MiniFruit extends Actor
 {
     private int speed = 2;
     private int damage;
 
-    private int stage = 0; // which ladder we are heading to
+    private int stage = 0; // which ladder it is headed to 
     private boolean climbing = false;
 
     // Ladder X positions (pixels)

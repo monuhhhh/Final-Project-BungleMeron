@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=MiniFruit
+comment0.text=\n\ minifruit\ (mini\ watermelons)\ shoot\ out\ of\ the\ boss\ fruit\ and\ follow\ the\n\ pathways\ of\ the\ ladders\ as\ obstacles\ in\ the\ way\ of\ the\ player's\ path\n\ \n\ @author\ (Kalkie)\ \n\ @version\ (Jan\ 2025)\n
 comment1.params=bossStrength
 comment1.target=MiniFruit(int)
 comment2.params=
