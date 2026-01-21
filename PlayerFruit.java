@@ -42,19 +42,31 @@ public abstract class PlayerFruit extends Fruits
         }
     }
     
-    public void act() {//monika
-        if (!(getWorld() instanceof MyWorld)) return; // Don't do anything in CustomizeWorld
+    public void act() {// monika
+        if (!(getWorld() instanceof MyWorld)) return;
         if (frozen) return;
-        if (damageCooldown > 0) damageCooldown--;
-
+    
+        if (damageCooldown > 0) {
+            damageCooldown--;
+        }
+    
         handleMovement();
-        if (!onLadder) applyGravity();
-        
-        checkDropletCollision();    // Fixed droplet collisions
-        checkMiniFruitCollision();  // Handles projectiles hitting player
-        //checkCollision();           // Handles other collisions (if needed)
-        checkGoal();                // Check for level progression
-    } 
+    
+        // droplet collision must be checked before gravity snapping
+        checkDropletCollision();
+    
+        // gravity + landing logic
+        if (!onLadder) {
+            applyGravity();
+        }
+    
+        // other collisions
+        checkMiniFruitCollision();
+    
+        // goal tile check
+        checkGoal();
+    }
+
     
     public void changeHP(int amount) {//monika
         hp += amount;
@@ -148,65 +160,75 @@ public abstract class PlayerFruit extends Fruits
         }
     }
     
-    
-    
-    private void checkDropletCollision() {//monika
-        Droplets hit = null;
-    
-        // Look for any droplets in the world
+    private void checkDropletCollision() {// monika
         for (Droplets d : getWorld().getObjects(Droplets.class)) {
-            double dx = d.getX() - getX();
-            double dy = d.getY() - getY();
-            double distance = Math.sqrt(dx * dx + dy * dy);
     
-            if (distance < 30) { // tweak radius if needed
-                hit = d;
-                break;
-            }
-        }
+            // droplet hitbox dimensions
+            int boxW = 24;
+            int boxH = 34;
     
-        if (hit != null) {
+            // hitbox edges
+            int dropletLeft   = d.getX() - boxW / 2;
+            int dropletRight  = d.getX() + boxW / 2;
+            int dropletTop    = d.getY() - boxH / 2;
+            int dropletBottom = d.getY() + boxH / 2;
+    
+            // player edges (still image-based, that's fine)
+            int playerLeft   = getX() - getImage().getWidth() / 2;
+            int playerRight  = getX() + getImage().getWidth() / 2;
+            int playerTop    = getY() - getImage().getHeight() / 2;
             int playerBottom = getY() + getImage().getHeight() / 2;
-            int dropletTop  = hit.getY() - hit.getImage().getHeight() / 2;
     
-            if (playerBottom <= dropletTop + 5) {
-                // Player jumped on top of droplet
+            // axis-aligned bounding box overlap
+            boolean overlap =
+                    playerRight  > dropletLeft &&
+                    playerLeft   < dropletRight &&
+                    playerBottom > dropletTop &&
+                    playerTop    < dropletBottom;
+    
+            if (!overlap) continue;
+    
+            // ±10px stomp window against flat top
+            boolean hitFromTop =
+                    Math.abs(playerBottom - dropletTop) <= 10 &&
+                    getY() < d.getY();
+    
+            if (hitFromTop) {
                 changeHP(10);
+                yVelocity = -8;
             } else {
-                // Player hit droplet from side/bottom
                 changeHP(-15);
             }
     
-            getWorld().removeObject(hit);
+            getWorld().removeObject(d);
+            return;
         }
     }
 
 
+
     
    
    
-    private void checkMiniFruitCollision(){//monika
-        MiniFruit hit = null;
+    private void checkMiniFruitCollision() {// monika
+        for (MiniFruit mf : getWorld().getObjects(MiniFruit.class)) {
     
-        for (MiniFruit mf : getWorld().getObjects(MiniFruit.class))
-        {
-            double dx = mf.getX() - getX();
-            double dy = mf.getY() - getY();
-            double distance = Math.sqrt(dx * dx + dy * dy);
+            int dx = Math.abs(mf.getX() - getX());
+            int dy = Math.abs(mf.getY() - getY());
     
-            if (distance < 30)  // collision radius (tweakable)
-            {
-                hit = mf;
-                break;
-            }
-        }
+            // horizontal overlap tolerance
+            if (dx > getImage().getWidth() / 2) continue;
     
-        if (hit != null)
-        {
+            // vertical overlap tolerance
+            if (dy > getImage().getHeight() / 2) continue;
+    
+            // any contact causes damage
             damageMe(10);
-            getWorld().removeObject(hit);
+            getWorld().removeObject(mf);
+            return;
         }
     }
+
 
     
     
