@@ -1,14 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class VictoryWorld here.
+ * VictoryWorld displayed when the player completes all level of the game.
+ * It allow player to press 'r' to restart the game. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Carmen Cheung
+ * @version Jan 16, 2026
  */
 public class VictoryWorld extends World
 {
-
     /**
      * Constructor for objects of class VictoryWorld.
      * 
@@ -21,6 +21,9 @@ public class VictoryWorld extends World
         
     }
     
+    /**
+     * if the player presses the 'r' key, saved player data is rest and the game restart. 
+     */
     public void act(){
         if (Greenfoot.isKeyDown("r")) {
             UserInfo user = UserInfo.getMyInfo();
@@ -30,6 +33,7 @@ public class VictoryWorld extends World
                 user.store();
             }
             
+            //navagate the player to the title screen
             Greenfoot.setWorld(new TitleWorld());
         }
     }

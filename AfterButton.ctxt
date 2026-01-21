@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=AfterButton
-comment0.text=\n\ Write\ a\ description\ of\ class\ AfterButton\ here.\n\ \n\ @author\ Carmen\ Cheung\ \n\ @version\ Jan\ 13,\ 2025\n
+comment0.text=\n\ AfterButton\ is\ a\ button\ that\ allow\ the\ player\ to\ cycle\ to\ the\ next\ fruit\ option\ in\ CustomizeWorld.\ \n\ \n\ @author\ Carmen\ Cheung\ \n\ @version\ Jan\ 13,\ 2025\n
 comment1.params=w
 comment1.target=AfterButton(CustomizeWorld)
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\n\ Checks\ for\ mouse\ clicks\ on\ this\ button.\n\ When\ clicked,\ it\ tells\ the\ CustomizeWorld\n\ to\ show\ the\ next\ fruit.\n
 numComments=3

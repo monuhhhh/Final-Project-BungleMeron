@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Platform here.
+ * Platform represents a surface that the player can stand or land on during the game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Carmen Cheung 
+ * @version Jan 16, 2026
  */
 public class Platform extends Actor
 {
@@ -17,7 +17,7 @@ public class Platform extends Actor
         setImage(img);
     }
     */
-    // OR if you want to see collision boxes during testing:
+    //To see collision boxes during testing:
     
     public Platform() {
         GreenfootImage img = new GreenfootImage(40, 40);

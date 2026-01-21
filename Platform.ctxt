@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Platform
-comment0.text=\n\ Write\ a\ description\ of\ class\ Platform\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Platform\ represents\ a\ surface\ that\ the\ player\ can\ stand\ or\ land\ on\ during\ the\ game.\n\ \n\ @author\ Carmen\ Cheung\ \n\ @version\ Jan\ 16,\ 2026\n
 comment1.params=
 comment1.target=Platform()
 comment1.text=\n\ \ \ \ public\ Platform()\ {\n\ \ \ \ \ \ \ \ //\ Make\ platform\ invisible\ since\ background\ shows\ shelves\n\ \ \ \ \ \ \ \ GreenfootImage\ img\ \=\ new\ GreenfootImage(40,\ 40);\n\ \ \ \ \ \ \ \ img.setColor(new\ Color(0,\ 0,\ 0,\ 0));\ //\ Fully\ transparent\n\ \ \ \ \ \ \ \ img.fill();\n\ \ \ \ \ \ \ \ setImage(img);\n\ \ \ \ }\n

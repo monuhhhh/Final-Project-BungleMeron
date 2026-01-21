@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=InstructionWorld
-comment0.text=\n\ Write\ a\ description\ of\ class\ InstructionWorld\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ InstructionWorld\ displays\ the\ game\ instructions\ before\ gameplay\ begins.\n\ \n\ @author\ Carmen\ Cheung\n\ @version\ Jan\ 16,\ 2026\n
 comment1.params=
 comment1.target=InstructionWorld()
 comment1.text=\n\ Constructor\ for\ objects\ of\ class\ InstructionWorld.\n\ \n

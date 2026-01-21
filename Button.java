@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Button here.
+ * Button is a superclass for other clickable buttons in the game
  * 
  * @author Carmen Cheung 
  * @version Jan 13, 2025

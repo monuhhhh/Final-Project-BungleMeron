@@ -1,14 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Ladder here.
+ * Ladder represents a climable object in the game. 
  * 
  * @author Carmen Cheung 
- * @version (a version number or a date)
+ * @version Jan 16, 2026
  */
 
 public class Ladder extends Actor
 {
+    /**
+     * Constructs a Ladder object.
+     * 
+     */
     public Ladder() {
         GreenfootImage img = new GreenfootImage(40, 40);
         img.setColor(Color.ORANGE);

@@ -1,20 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class FinalButton here.
+ * FinalButton activates the final event when the player gets close enough. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Carmen Cheung 
+ * @version Jan 16, 2026
  */
 public class FinalButton extends Button
 {
+    //track whether the button has already been activated
     private boolean activated = false;
     
+    /**
+     * constructor that construct the FinalButton
+     */
     public FinalButton(){
         GreenfootImage image = new GreenfootImage("finalbutton.png");
         image.scale(40, 40);
         setImage(image);
     }
+    
     /**
      * Act - do whatever the FinalButton wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -24,6 +29,10 @@ public class FinalButton extends Button
         checkActivation(); 
     }
     
+    /**
+     * Checks if the player is within activation range.
+     * When activated, it triggers the boss event. 
+     */
     private void checkActivation(){
         if (!activated) {
             java.util.List<PlayerFruit> players = getWorld().getObjects(PlayerFruit.class);
@@ -38,6 +47,7 @@ public class FinalButton extends Button
                                 
                 if (distance < 40) {
                     activated = true;
+                    //Trigger final boss behavior
                     MyWorld world = (MyWorld) getWorld();
                     world.makeBossFall();
                     

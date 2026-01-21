@@ -1,8 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * CustomizeWorld allows players to select their fruit characters before the simulation starts.
- * Each fruit has unique stats that affect the ending result of the game depends on which fruit player picks.
+ * CustomizeWorld allows players to select their fruit character they want to control.
  * 
  * @author Carmen Cheung
  * @version 13 Jan, 2026
@@ -12,11 +11,13 @@ public class CustomizeWorld extends World
     //List of available fruit names
     private ArrayList<String> fruitNames = new ArrayList<>();
     
+    //index to track which fruit is currently selected
     private int index = 0; 
     
     //the fruit currently shown
     private PlayerFruit displayedFruit;
     
+    //the fruit chosen by the player
     private PlayerFruit selectedFruit; 
     
     /**
@@ -36,6 +37,7 @@ public class CustomizeWorld extends World
         fruitNames.add("Kiwi");
         fruitNames.add("Orange");
         
+        //show the frist fruit when the world starts
         showCurrentFruit();
         
         //Add navigation and selection buttons
@@ -44,13 +46,17 @@ public class CustomizeWorld extends World
         addObject(new SelectButton(this), 135, 320);
     }
     
-    //Displays the current fruit and removes the previous fruit display
+    /**
+     * Displays the currently selected fruit
+     * and removes the previously displayed one
+     */    
     public void showCurrentFruit(){
         //remove old display
         if (displayedFruit != null) {
             removeObject(displayedFruit);
         }
         
+        //create a new fruit based on the current index
         displayedFruit = createFruit(fruitNames.get(index));
         
         //Add the fruit to the world         
@@ -65,7 +71,10 @@ public class CustomizeWorld extends World
         showStats(displayedFruit);
     }
     
-    //create the appropriate fruit object based on name
+    /**
+     * Creates and returns the correct fruit object
+     * based on the fruit name
+     */    
     private PlayerFruit createFruit(String name){
         //Load image from Fruit folder
         String imagePath = "Fruit/" + name + ".png"; 
@@ -83,6 +92,9 @@ public class CustomizeWorld extends World
          
     }
     
+    /**
+     * displays the selected fruit's stats
+     */
     private void showStats(PlayerFruit f){
         // Clear previous text
         showText("", 420, 160);
@@ -90,29 +102,44 @@ public class CustomizeWorld extends World
         showText("", 420, 220);
         showText("", 420, 255);
     
+        //show fruit name
         showText(f.getName(), 420, 190);
+        //show fruit hp
         showText(" HP: " + (int)f.hp, 420, 220);
     }
     
+    /**
+     * switch to the next fruit in the list
+     */
     public void nextFruit(){
         index = (index + 1) % fruitNames.size();
         showCurrentFruit();
     }
     
+    /**
+     * switches to the previous fruit in the list
+     */
     public void prevFruit(){
         index = (index - 1 + fruitNames.size()) % fruitNames.size();
         showCurrentFruit();
     }
     
+    /**
+     * save the selcted fruit and navigate to the MyWorld
+     */
     public void selectFruit() { 
         selectedFruit = displayedFruit; 
         
         //Pass selected fruit to main world
         MyWorld.selectedFruit = selectedFruit; 
         
+        //switch to the main game world
         Greenfoot.setWorld(new MyWorld()); 
     }
     
+    /**
+     * return the currently displayed fruit
+     */
     public PlayerFruit getSelectedFruit() {
         return displayedFruit;
     }
