@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=TitleWorld
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ TitleWorld\ here.\r\n\ \r\n\ @author\ Carmen\ Cheung\ \r\n\ @version\ Jan\ 13,\ 2025\r\n
+comment0.text=\n\ TitleWorld\ displays\ the\ title\ screen\ of\ the\ game.\n\ It\ provides\ a\ start\ button\ that\ navigate\ player\ to\ the\ Customize\ screen.\ \n\ \n\ @author\ Carmen\ Cheung\ \n\ @version\ Jan\ 13,\ 2025\n
 comment1.params=
 comment1.target=TitleWorld()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ TitleWorld.\r\n\ \r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ TitleWorld.\n\ \n
 numComments=2

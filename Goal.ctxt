@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.target=Goal
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Goal\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Goal\ represent\ an\ invisible\ target\ area\ in\ the\ game.\n\ When\ the\ player\ reaches\ this\ area,\ it\ can\ be\ used\n\ to\ trigger\ level\ completion\ or\ victory\ conditions.\n\ \n\ @author\ Carmen\ Cheung\ \n\ @version\ Jan\ 20,\ 2026\n
 comment1.params=
 comment1.target=Goal()
+comment1.text=\n\ COnstructs\ the\ Goal\ object.\n
 numComments=2

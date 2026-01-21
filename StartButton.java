@@ -1,17 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartButton here.
+ * StartButton is a clickable button that transitions the player to a different world.
  * 
  * @author Carmen Cheung 
  * @version Jan 13, 2025
  */
 public class StartButton extends Button
 {
+    //name of the world this button should switch to
     private String targetWorld; 
+    
     /**
-     * Act - do whatever the StartButton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructs the StartButton.
+     * 
+     * @param targetWorld the name of the world to switch to
      */
     public StartButton(String targetWorld) {
         GreenfootImage image = new GreenfootImage("start.png");
@@ -19,6 +22,11 @@ public class StartButton extends Button
         setImage(image);
         this.targetWorld = targetWorld; 
     }
+    
+    /**
+     * Act - do whatever the StartButton wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     public void act()
     {
         if (Greenfoot.mouseClicked(this)) {

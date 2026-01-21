@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=VictoryWorld
+comment0.text=\n\ VictoryWorld\ displayed\ when\ the\ player\ completes\ all\ level\ of\ the\ game.\n\ It\ allow\ player\ to\ press\ 'r'\ to\ restart\ the\ game.\ \n\ \n\ @author\ Carmen\ Cheung\n\ @version\ Jan\ 16,\ 2026\n
+comment1.params=
+comment1.target=VictoryWorld()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ VictoryWorld.\n\ \n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ if\ the\ player\ presses\ the\ 'r'\ key,\ saved\ player\ data\ is\ rest\ and\ the\ game\ restart.\ \n
+numComments=3

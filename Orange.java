@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Orange represents the AnnoyingOrange variant of the Annoying fruit player. 
+ * Write a description of class Orange here.
  * 
- * @author Monika
- * @version 15 Jan 2026
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class Orange extends PlayerFruit
 {
@@ -13,8 +13,8 @@ public class Orange extends PlayerFruit
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Orange(String imagePath)
-    { 
-        super(imagePath, 70, 100); // direction, imagePath, hp
+    {
+        super(imagePath, "Lady Gege", 70, 100); // direction, imagePath, hp
     }
     
     public void act()

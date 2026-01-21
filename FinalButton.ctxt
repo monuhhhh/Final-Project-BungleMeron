@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=FinalButton
+comment0.text=\n\ FinalButton\ activates\ the\ final\ event\ when\ the\ player\ gets\ close\ enough.\ \n\ \n\ @author\ Carmen\ Cheung\ \n\ @version\ Jan\ 16,\ 2026\n
+comment1.params=
+comment1.target=FinalButton()
+comment1.text=\n\ constructor\ that\ construct\ the\ FinalButton\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ FinalButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment3.params=
+comment3.target=void\ checkActivation()
+comment3.text=\n\ Checks\ if\ the\ player\ is\ within\ activation\ range.\n\ When\ activated,\ it\ triggers\ the\ boss\ event.\ \n
+numComments=4

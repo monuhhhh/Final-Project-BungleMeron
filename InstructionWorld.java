@@ -1,14 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class InstructionWorld here.
+ * InstructionWorld displays the game instructions before gameplay begins.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Carmen Cheung
+ * @version Jan 16, 2026
  */
 public class InstructionWorld extends World
 {
-
     /**
      * Constructor for objects of class InstructionWorld.
      * 
@@ -18,7 +17,7 @@ public class InstructionWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1);  
         setBackground(new GreenfootImage("instruction.png"));
-        //Add start button
+        //start button that proceed to CustomizeWorld
         StartButton start = new StartButton("CustomizeWorld");
         addObject(start, getWidth()/2, getHeight()/2 + 130); 
     }
