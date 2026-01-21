@@ -2,9 +2,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
  * CustomizeWorld allows players to select their fruit characters before the simulation starts.
- * Each fruit has unique stats that affect the ending result of the game depends on which fruit player picks.
+ * The customization allows for a more immersed experioence as the user. You will chose from 5 different 
+ * fruits of the "Annoying Fruit" family to be your player
  * 
- * @author Carmen Cheung
+ * Credits to Carmen Cheung for base code from midterm project
+ * 
+ * @author Monika Kouyoumdjian and Carmen Cheung
  * @version 13 Jan, 2026
  */
 public class CustomizeWorld extends World

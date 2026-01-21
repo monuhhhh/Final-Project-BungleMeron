@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CustomizeWorld
-comment0.text=\r\n\ CustomizeWorld\ allows\ players\ to\ select\ their\ fruit\ characters\ before\ the\ simulation\ starts.\r\n\ Each\ fruit\ has\ unique\ stats\ that\ affect\ the\ ending\ result\ of\ the\ game\ depends\ on\ which\ fruit\ player\ picks.\r\n\ \r\n\ @author\ Carmen\ Cheung\r\n\ @version\ 13\ Jan,\ 2026\r\n
+comment0.text=\r\n\ CustomizeWorld\ allows\ players\ to\ select\ their\ fruit\ characters\ before\ the\ simulation\ starts.\r\n\ The\ customization\ allows\ for\ a\ more\ immersed\ experioence\ as\ the\ user.\ You\ will\ chose\ from\ 5\ different\ \r\n\ fruits\ of\ the\ "Annoying\ Fruit"\ family\ to\ be\ your\ player\r\n\ \r\n\ Credits\ to\ Carmen\ Cheung\ for\ base\ code\ from\ midterm\ project\r\n\ \r\n\ @author\ Monika\ Kouyoumdjian\ and\ Carmen\ Cheung\r\n\ @version\ 13\ Jan,\ 2026\r\n
 comment1.params=
 comment1.target=CustomizeWorld()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ CustomizeWorld.\r\n\ \r\n

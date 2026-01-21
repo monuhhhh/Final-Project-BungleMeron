@@ -18,7 +18,7 @@ public class MyWorld extends World
     private int gridHeight = 17; // Adjusted for 675 height (675/40 ≈ 17)
     private int currentLevel = 1;
     
-    private int dropletTimer = 0;
+    private int dropletTimer = 0;//monika
     
     
     public MyWorld()
@@ -231,7 +231,7 @@ public class MyWorld extends World
     /**
      * Add the player's selected fruit to the world
      */
-    private void addPlayerFruit(int x, int y) {
+    private void addPlayerFruit(int x, int y) {//momika
         if (selectedFruit == null) {
             // Default to Lemon if no fruit was selected
             selectedFruit = new Lemon("Fruit/Lemon.png");

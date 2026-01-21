@@ -5,7 +5,7 @@ import greenfoot.*;
  * AnnoyingFruit is the player-controlled fruit.
  * The player selects which annoying fruit to play as.
  * 
- * @author  Carmen and Monika
+ * @author  Monika Kouyoumdjian
  * @version 24 Nov, 2025
  */  
 public abstract class PlayerFruit extends Fruits
