@@ -1,7 +1,66 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import greenfoot.UserInfo;
 /**
- * Write a description of class MyWorld here.
+ *
+ * This game is inspiered by the iconic Nintendo game, Donkey Kong! We names our game BungleMeron since 
+ * the original games name follows the pattern of "(foolish) (common term in Japan for giant ape)". 
+ * So we Found a sysnonym for foolish, and found the word for Melon in Japanese.
+ * 
+ * The games story is that the Giant boss melon turned up the temperature in the fridge and is guarding the thermostat! 
+ * Your mission is to clibm your way to the top through obstacles over the course of 5 levels to banish the Boss and 
+ * restore the correct temperature setting!
+ * 
+ * Instructions for Mr.Cohen:
+ *      Avoid obstacles my jumping over them with the space key, move left and right with the arrow keys and to climb
+ *      the ladders. The miniFruit obstacle that the boss shoots out decrease hp by 10, the droplets falling from the sky
+ *      can increase hp by 10 if you perfectly jump ontop, or decrease hp by 15. 
+ *      
+ *      Make contact with the boss at the top of each Level in order to move onto the next level, Once you reach the 
+ *      last level. You will have an opportunity to defeat the boss by making them fall off the shelf. 
+ * 
+ * Cheats to get there faster:
+ *      This cheat for thsi game also requiers you to have a but of skill! In order to jump to the next level
+ *      without having to climb the ladder that is swarming with miniFruit obstacels, you must jump perfectly 
+ *      ontop of the droplet obstacle (this also has you gain 10 hp) when its floating around halfway through the shelf. 
+ *      You will be able to jump through a shelf and potentially arvoid some obstacles. 
+ * 
+ * Grid implementation:
+ *      The game world is organized as a 2D grid with 12 columns and 17 rows, where each cell is 40 pixels. 
+ *      Each cell holds a number representing what’s in that space: 0 = empty, 1 = platform, 2 = ladder, 
+ *      3 = obstacle/block, 4 = player start, 5 = goal. When a level loads, the grid is read and objects 
+ *      are placed in the world centered in their cells. Helper methods like getGridValue(), 
+ *      isPlatformBelow(), and isLadderAt() use the grid for collision detection and movement logic. 
+ *      showGrid() can be used for debugging to display cell boundaries and values.
+ *      
+ * 
+ * Save/load implimentation:
+ *      The game saves the player’s current HP using Greenfoot’s UserInfo system. When a level is 
+ *      completed, the player’s HP is stored in slot 0 with user.store(). On the next level, the game 
+ *      retrieves this value and applies it to the player so health carries over between levels. This 
+ *      ensures continuity in player progress and allows HP to persist even if the game is closed and 
+ *      restarted.
+ * 
+ * credits:
+ *      Code:
+ *      - monika gr11 final project
+ *      
+ *      Sound:
+ *      
+ *      Images: 
+ *      - droplet: Adobe stock image Cartoon Water Droplet Image 
+ *      
+ *      
+ *      
+ * 
+ * Bugs: not any known bugs 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  * 
  * @author Carmen Cheung, Monika, Kalkie
  * @version 14 Jan, 2026
