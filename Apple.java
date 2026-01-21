@@ -4,7 +4,7 @@ import greenfoot.*;
  * AnnoyingApple represents the Apple variant of the Annoying fruit player.
  * 
  * @author Monika
- * @version 24 Nov, 2025
+ * @version 15 Jan 2026
  */
 public class Apple extends PlayerFruit
 {

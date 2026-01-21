@@ -6,7 +6,7 @@ import java.util.List;
  * It defines stats and core behaviours shared by all fruits.
  * 
  * @author Monika Kouyoumdjian
- * @version 24 Nov, 2025
+ * @version 24 Nov, 2025 and jan 16 2026
  */
 public abstract class Fruits extends SuperSmoothMover
 {

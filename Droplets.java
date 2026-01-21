@@ -1,8 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 // credits to Falling Objects - Greenfoot.org
-// Monika Kouyoumdjian
-// Jan 16
+/**
+ * This obstacle is inspiered by an obstacle seen in super mario, where depending on where a player makes contact, it can either
+ * help them out, or make them lose hp. If a player jumps dirrectly ontop of the droplet, they will gain 10HP, but if they make 
+ * contact anywhere else, they will lose 15 hp
+ * 
+ * @author (monika) 
+ * @version (Jan 16 2025)
+ */
 public class Droplets extends SuperSmoothMover
 {
     private int fallTime; // delay in frames before the object starts falling

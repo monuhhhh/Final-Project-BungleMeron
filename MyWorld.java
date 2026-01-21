@@ -32,8 +32,8 @@ public class MyWorld extends World
         showGrid(); 
     }
     
-    public void act(){
-        spawnDroplets();
+    public void act(){//monika
+        spawnDroplets(); 
     }
     
     private void initializeGrid() {
@@ -376,7 +376,7 @@ public class MyWorld extends World
         showText("HP: " + hp, getWidth() - 60, 30); // top right, like level number
     }
     
-    public void savePlayerHP(int hp) {
+    public void savePlayerHP(int hp) {//monika
         UserInfo user = UserInfo.getMyInfo();
         if (user != null) {
             user.setInt(0, hp);   // slot 0 stores HP

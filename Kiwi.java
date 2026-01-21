@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Kiwi here.
+ * option of having kiwi as the player
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Monika) 
+ * @version 15 Jan 2026
  */
 public class Kiwi extends PlayerFruit
 {

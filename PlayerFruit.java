@@ -5,7 +5,7 @@ import greenfoot.*;
  * AnnoyingFruit is the player-controlled fruit.
  * The player selects which annoying fruit to play as.
  * 
- * @author  Carmen and monika
+ * @author  Carmen and Monika
  * @version 24 Nov, 2025
  */  
 public abstract class PlayerFruit extends Fruits
@@ -24,10 +24,10 @@ public abstract class PlayerFruit extends Fruits
     protected int maxHp = 100;
     
     //constructor for PlayerFruit (player)
-    public PlayerFruit(String imagePath, int initialHp, int maxHP) {
+    public PlayerFruit(String imagePath, int initialHp, int maxHP) {//monika
         super(1); // default direction, not important anymore
         setImage(imagePath);
-    
+     
         this.maxHp = maxHP;
         this.hp = initialHp;
     }
@@ -35,14 +35,14 @@ public abstract class PlayerFruit extends Fruits
     
     
     @Override
-    protected void die() {
+    protected void die() {//monika
         MyWorld world = (MyWorld) getWorld();
         if (world != null) {
             world.lose();
         }
     }
     
-    public void act() {
+    public void act() {//monika
         if (!(getWorld() instanceof MyWorld)) return; // Don't do anything in CustomizeWorld
         if (frozen) return;
         if (damageCooldown > 0) damageCooldown--;
@@ -56,9 +56,9 @@ public abstract class PlayerFruit extends Fruits
         checkGoal();                // Check for level progression
     } 
     
-    public void changeHP(int amount) {
+    public void changeHP(int amount) {//monika
         hp += amount;
-        if (hp < 0) hp = 0;
+        if (hp < 0) hp = 0; 
     
         MyWorld world = (MyWorld)getWorld();
         if (world != null) {
