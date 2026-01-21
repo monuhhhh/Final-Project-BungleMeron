@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Platform
-comment0.text=\n\ Platform\ represents\ a\ surface\ that\ the\ player\ can\ stand\ or\ land\ on\ during\ the\ game.\n\ \n\ @author\ Carmen\ Cheung\ \n\ @version\ Jan\ 16,\ 2026\n
+comment0.text=\r\n\ Platform\ represents\ a\ surface\ that\ the\ player\ can\ stand\ or\ land\ on\ during\ the\ game.\r\n\ \r\n\ @author\ Carmen\ Cheung\ \r\n\ @version\ Jan\ 16,\ 2026\r\n
 comment1.params=
 comment1.target=Platform()
-comment1.text=\n\ \ \ \ public\ Platform()\ {\n\ \ \ \ \ \ \ \ //\ Make\ platform\ invisible\ since\ background\ shows\ shelves\n\ \ \ \ \ \ \ \ GreenfootImage\ img\ \=\ new\ GreenfootImage(40,\ 40);\n\ \ \ \ \ \ \ \ img.setColor(new\ Color(0,\ 0,\ 0,\ 0));\ //\ Fully\ transparent\n\ \ \ \ \ \ \ \ img.fill();\n\ \ \ \ \ \ \ \ setImage(img);\n\ \ \ \ }\n
+comment1.text=\r\n\ \ \ \ public\ Platform()\ {\r\n\ \ \ \ \ \ \ \ //\ Make\ platform\ invisible\ since\ background\ shows\ shelves\r\n\ \ \ \ \ \ \ \ GreenfootImage\ img\ \=\ new\ GreenfootImage(40,\ 40);\r\n\ \ \ \ \ \ \ \ img.setColor(new\ Color(0,\ 0,\ 0,\ 0));\ //\ Fully\ transparent\r\n\ \ \ \ \ \ \ \ img.fill();\r\n\ \ \ \ \ \ \ \ setImage(img);\r\n\ \ \ \ }\r\n
 numComments=2
