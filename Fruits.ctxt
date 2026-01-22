@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Fruits
-comment0.text=\r\n\ Fruits\ is\ a\ superclass\ for\ all\ fruit\ characters\ in\ the\ game.\r\n\ It\ defines\ shared\ behaviours\ like\ movement\ direction.\ \r\n\ Most\ other\ variables\ are\ specific\ to\ PlayerFruit\ and\ have\ been\ removed.\r\n\ \r\n\ @author\ Monika\ Kouyoumdjian\r\n\ @version\ Jan\ 16\ 2026\r\n
+comment0.text=\n\ Fruits\ is\ a\ superclass\ for\ all\ fruit\ characters\ in\ the\ game.\n\ It\ defines\ shared\ behaviours\ like\ movement\ direction.\ \n\ Most\ other\ variables\ are\ specific\ to\ PlayerFruit\ and\ have\ been\ removed.\n\ \n\ @author\ Monika\ Kouyoumdjian\n\ @version\ Jan\ 16\ 2026\n
 comment1.params=direction
 comment1.target=Fruits(int)
 comment2.params=

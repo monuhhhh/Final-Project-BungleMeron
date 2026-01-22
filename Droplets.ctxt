@@ -1,11 +1,11 @@
 #BlueJ class context
 comment0.target=Droplets
-comment0.text=\r\n\ This\ obstacle\ is\ inspired\ by\ a\ Super\ Mario-style\ droplet.\r\n\ Player\ gains\ 10HP\ if\ they\ jump\ directly\ on\ top,\ otherwise\ they\ lose\ 15HP.\r\n
+comment0.text=\n\ This\ obstacle\ is\ inspired\ by\ a\ Super\ Mario-style\ droplet.\n\ Player\ gains\ 10HP\ if\ they\ jump\ directly\ on\ top,\ otherwise\ they\ lose\ 15HP.\n
 comment1.params=fallTime
 comment1.target=Droplets(int)
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ checkPlayerCollision()
-comment3.text=\r\n\ Checks\ if\ PlayerFruit\ contacts\ this\ droplet\ and\ applies\ HP\ accordingly\r\n
+comment3.text=\n\ Checks\ if\ PlayerFruit\ contacts\ this\ droplet\ and\ applies\ HP\ accordingly\n
 numComments=4

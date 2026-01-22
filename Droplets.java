@@ -8,7 +8,11 @@ public class Droplets extends SuperSmoothMover
 {
     private int fallTime; // delay in frames before the object starts falling
     private int actCounter = 0; // counter to track number of frames passed
+    private boolean soundPlayed = false;
+    private static GreenfootSound dropSound = new GreenfootSound("dropletsound.wav");
 
+    
+    
     private static final String IMAGE_PATH = "droplets.png";
 
     public Droplets(int fallTime)
