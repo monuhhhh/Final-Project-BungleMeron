@@ -13,6 +13,7 @@ public class BossFruit extends Actor
     // Boss stat
     private int hp = 200;
     private int strength = 10;
+    private static GreenfootSound bossHitSound = new GreenfootSound("losinghp.wav");
 
     //calculating what level we're on, what is the constant (2x+10) x = level you're at
     //increasing hp level 
@@ -116,6 +117,7 @@ public class BossFruit extends Actor
      */
     public void takeDamage(int damage)
     {
+        bossHitSound.play();
         hp -= damage;
 
         if (hp <= 0)

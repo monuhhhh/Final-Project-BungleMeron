@@ -1,4 +1,6 @@
-background.mp3dropletsound.wavlosinghp.wavimport greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
+
+// (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * This obstacle is inspired by a Super Mario-style droplet.
@@ -10,8 +12,6 @@ public class Droplets extends SuperSmoothMover
     private int actCounter = 0; // counter to track number of frames passed
     private boolean soundPlayed = false;
     private static GreenfootSound dropSound = new GreenfootSound("dropletsound.wav");
-
-    
     
     private static final String IMAGE_PATH = "droplets.png";
 

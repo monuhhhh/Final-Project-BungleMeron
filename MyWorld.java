@@ -74,6 +74,8 @@ public class MyWorld extends World
     // Static variable to hold the selected fruit from aCustomizeWorld
     public static PlayerFruit selectedFruit;
     
+    private static GreenfootSound bgMusic = new GreenfootSound("background.mp3");
+
     private int[][] grid;
     private int cellSize = 40;
     private int gridWidth = 12; // Adjusted for 480 width (480/40 = 12)
@@ -93,6 +95,12 @@ public class MyWorld extends World
         buildLevel(currentLevel);
         //uncomment for debugging 
         //showGrid(); 
+        
+                if (!bgMusic.isPlaying()) {
+            bgMusic.setVolume(60);
+            bgMusic.playLoop();
+        }
+
     }
     
     public void act(){//monika
