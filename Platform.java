@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Platform extends Actor
 {
-    /*
     public Platform() {
         // Make platform invisible since background shows shelves
         GreenfootImage img = new GreenfootImage(40, 40);
@@ -16,14 +15,14 @@ public class Platform extends Actor
         img.fill();
         setImage(img);
     }
-    */
-    //To see collision boxes during testing:
     
+    //To see collision boxes during testing:
+    /*
     public Platform() {
         GreenfootImage img = new GreenfootImage(40, 40);
         img.setColor(new Color(255, 0, 0, 50)); // Semi-transparent red
         img.fill();
         setImage(img);
     }
-    
+    */
 }

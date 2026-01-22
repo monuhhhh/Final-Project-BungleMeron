@@ -91,7 +91,8 @@ public class MyWorld extends World
         
         initializeGrid();
         buildLevel(currentLevel);
-        showGrid(); 
+        //uncomment for debugging 
+        //showGrid(); 
     }
     
     public void act(){//monika
