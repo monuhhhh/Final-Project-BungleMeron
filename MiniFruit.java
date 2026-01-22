@@ -13,6 +13,10 @@ public class MiniFruit extends Actor
     // Where to stop climbing (Y pixel)
     private int[] ladderEndY = {260, 340, 460, 540};
 
+    /**
+     * Constructs a MiniFruit with a given damage value
+     * @param bossStrength sets the damage this MiniFruit deals
+     */
     public MiniFruit(int bossStrength)
     {
         damage = bossStrength;
@@ -22,27 +26,27 @@ public class MiniFruit extends Actor
         setImage(img);
     }
     
+    // returns the damage value for collision
     public int getDamage() {
         return damage;
     }
 
+    /**
+     * main act loop: moves along ladders until reaching player
+     */
     public void act(){
-        //if (isTouching(MiniFruit.class)) return;
-    
-        if (stage >= ladderX.length)
-        {
+        if (stage >= ladderX.length) {
             moveTowardPlayer();
         }
-        else if (climbing)
-        {
+        else if (climbing) {
             climbDown();
         }
-        else
-        {
+        else {
             moveTowardLadder();
         }
-    
-        //checkPlayerHit();
+
+        // collision with player
+        checkPlayerHit();
     }
     
     /* ---------------- PATH FOLLOWING ---------------- */
@@ -51,17 +55,14 @@ public class MiniFruit extends Actor
     {
         int targetX = ladderX[stage];
 
-        if (Math.abs(getX() - targetX) <= speed)
-        {
+        if (Math.abs(getX() - targetX) <= speed) {
             setLocation(targetX, getY());
             climbing = true; 
         }
-        else if (getX() < targetX)
-        {
+        else if (getX() < targetX) {
             setLocation(getX() + speed, getY());
         }
-        else
-        {
+        else {
             setLocation(getX() - speed, getY());
         }
     }
@@ -70,8 +71,7 @@ public class MiniFruit extends Actor
     {
         setLocation(getX(), getY() + 2);
 
-        if (getY() >= ladderEndY[stage])
-        {
+        if (getY() >= ladderEndY[stage]) {
             climbing = false;
             stage++;
         }
@@ -79,12 +79,9 @@ public class MiniFruit extends Actor
 
     private void moveTowardPlayer()
     {
-            if (getWorld().getObjects(PlayerFruit.class).isEmpty()) return;
+        if (getWorld().getObjects(PlayerFruit.class).isEmpty()) return;
 
-            
-        PlayerFruit player = (PlayerFruit)getWorld()
-                .getObjects(PlayerFruit.class)
-                .get(0);
+        PlayerFruit player = (PlayerFruit)getWorld().getObjects(PlayerFruit.class).get(0);
 
         if (player.getX() > getX())
             setLocation(getX() + speed, getY());
@@ -93,18 +90,18 @@ public class MiniFruit extends Actor
     }
 
     /**
-    
-    private void checkPlayerHit(){
+     * Checks collision with PlayerFruit and applies damage
+     */
+    private void checkPlayerHit() {
         PlayerFruit player = (PlayerFruit)getOneIntersectingObject(PlayerFruit.class);
-    
-        if (player != null)
-        {
-            player.damageMe(10);   // exact damage
+
+        if (player != null) {
+            // Apply damage through PlayerFruit's method
+            player.changeHP(-damage);
             getWorld().removeObject(this);
         }
-    }*/
-    
- 
+    }
 }
+
    
 
