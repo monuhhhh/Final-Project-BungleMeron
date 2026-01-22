@@ -9,7 +9,7 @@ public class Droplets extends SuperSmoothMover
     private int actCounter = 0; // counter to track number of frames passed
     //Kalkie
     private boolean soundPlayed = false; 
-    private static GreenfootSound dropSound = new GreenfootSound("droplet.wav");
+    private static GreenfootSound dropSound = new GreenfootSound("dropletsound.wav");
 
 
     private static final String IMAGE_PATH = "droplet.png";
@@ -29,6 +29,11 @@ public class Droplets extends SuperSmoothMover
 
         if(actCounter > fallTime) {
             setLocation(getX(), getY() + 1); // move droplet down 1 pixel
+            if (!soundPlayed) {
+                dropSound.play();
+                soundPlayed = true;
+            }
+            setLocation(getX(), getY() + 1);
         }
         actCounter++;
 

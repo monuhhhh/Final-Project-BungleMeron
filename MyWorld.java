@@ -9,6 +9,9 @@ import greenfoot.UserInfo;
 
 public class MyWorld extends World
 {
+    private static GreenfootSound bgMusic = new GreenfootSound("background.mp3");
+
+    
     // Static variable to hold the selected fruit from aCustomizeWorld
     public static PlayerFruit selectedFruit;
     
@@ -25,7 +28,10 @@ public class MyWorld extends World
     {    
         super(480, 675, 1);
         setBackground("levelbg.png");
-        
+                if (!bgMusic.isPlaying()) {
+            bgMusic.setVolume(30);
+            bgMusic.playLoop();
+        }
         
         initializeGrid();
         buildLevel(currentLevel);
