@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=PrevButton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ PrevButton\ here.\r\n\ \r\n\ @author\ Carmen\ Cheung\ \r\n\ @version\ Jan\ 13,\ 2025\r\n
+comment0.text=\r\n\ PrevButton\ allows\ the\ player\ to\ cycle\ to\ the\ previous\ fruit\ option\ in\ the\ CustomizeWorld.\r\n\ \r\n\ @author\ Carmen\ Cheung\ \r\n\ @version\ Jan\ 13,\ 2025\r\n
 comment1.params=w
 comment1.target=PrevButton(CustomizeWorld)
+comment1.text=\r\n\ Construct\ the\ PrevButton\r\n\ \r\n\ @param\ w\ the\ CustomizeWorld\ this\ button\ belongs\ to\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ PrevButton\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 numComments=3

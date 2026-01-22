@@ -1,8 +1,11 @@
 #BlueJ class context
 comment0.target=Droplets
-comment0.text=\r\n\ This\ obstacle\ is\ inspiered\ by\ an\ obstacle\ seen\ in\ super\ mario,\ where\ depending\ on\ where\ a\ player\ makes\ contact,\ it\ can\ either\r\n\ help\ them\ out,\ or\ make\ them\ lose\ hp.\ If\ a\ player\ jumps\ dirrectly\ ontop\ of\ the\ droplet,\ they\ will\ gain\ 10HP,\ but\ if\ they\ make\ \r\n\ contact\ anywhere\ else,\ they\ will\ lose\ 15\ hp\r\n\ \r\n\ \r\n\ \r\n\ @author\ (monika)\ \r\n\ @version\ (Jan\ 16\ 2025)\r\n
+comment0.text=\r\n\ This\ obstacle\ is\ inspired\ by\ a\ Super\ Mario-style\ droplet.\r\n\ Player\ gains\ 10HP\ if\ they\ jump\ directly\ on\ top,\ otherwise\ they\ lose\ 15HP.\r\n
 comment1.params=fallTime
 comment1.target=Droplets(int)
 comment2.params=
 comment2.target=void\ act()
-numComments=3
+comment3.params=
+comment3.target=void\ checkPlayerCollision()
+comment3.text=\r\n\ Checks\ if\ PlayerFruit\ contacts\ this\ droplet\ and\ applies\ HP\ accordingly\r\n
+numComments=4
